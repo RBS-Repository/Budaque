@@ -67,10 +67,10 @@ body {
 .burger span {
     display: block;
     width: 25px;
-    height: 3px;
-    background-color: white;
+    height: 2px;
+    background-color: #ffffff;
     margin: 5px 0;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 /* Mobile Navigation */
@@ -1108,7 +1108,7 @@ body {
 
     /* Adjust hero section position */
     .hero {
-        padding-top: 15rem;
+        padding-top: 20rem;
     }
 
     .about {
