@@ -1436,3 +1436,263 @@ body {
         font-size: 0.8rem;
     }
 }
+
+/* Extra Small Mobile Devices (266px and below) */
+@media screen and (max-width: 266px) {
+    /* Navbar */
+    .nav-content {
+        padding: 0.8rem;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .burger span {
+        width: 20px;
+        height: 2px;
+    }
+
+    /* Hero Section */
+    .hero-content {
+        padding: 1rem;
+        margin-top: 3.5rem;
+    }
+
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .hero-text p {
+        font-size: 0.8rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .cta-button, .secondary-button {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+        width: 100%;
+    }
+
+    /* All Section Headers */
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    /* All Section Content */
+    .about-content,
+    .projects-content,
+    .services-content,
+    .process-content,
+    .team-content,
+    .contact-content {
+        padding: 1rem;
+    }
+
+    /* Grid Items */
+    .services-grid,
+    .process-grid,
+    .team-grid {
+        gap: 1rem;
+    }
+
+    /* Contact Section */
+    .info-item {
+        padding: 0.8rem;
+    }
+
+    .info-item i {
+        font-size: 0.9rem;
+    }
+
+    .info-details h3 {
+        font-size: 0.8rem;
+    }
+
+    .contact-link {
+        font-size: 0.75rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    .submit-btn {
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1rem;
+    }
+
+    .footer-content {
+        padding: 1rem;
+    }
+
+    .footer-top {
+        gap: 1rem;
+    }
+
+    .footer-logo h3 {
+        font-size: 1.2rem;
+    }
+
+    .footer-links a,
+    .footer-bottom p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Professional Team Introduction Section */
+.team-intro {
+    min-height: 100vh;
+    padding: 5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.team-intro-content {
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-intro-content h2 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.professional-intro {
+    margin-top: 2rem;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.video-wrapper::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+}
+
+#intro-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#intro-video::-webkit-media-controls-panel {
+    background: rgba(17, 17, 17, 0.8);
+}
+
+.intro-credits {
+    text-align: right;
+    margin-top: 1.5rem;
+    padding-right: 1rem;
+    border-top: 1px solid rgba(0, 255, 136, 0.1);
+    padding-top: 1rem;
+}
+
+.intro-credits p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.intro-credits span {
+    color: #00ff88;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.intro-credits span:hover {
+    color: #ffffff;
+}
+
+.credit-title {
+    font-size: 0.8rem !important;
+    margin-top: 0.2rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .team-intro {
+        padding: 4rem 1rem;
+        min-height: auto;
+    }
+
+    .team-intro-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .team-intro-content h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .intro-credits {
+        text-align: center;
+        padding-right: 0;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 266px) {
+    .team-intro-content {
+        padding: 1rem;
+    }
+
+    .team-intro-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .intro-credits p {
+        font-size: 0.8rem;
+    }
+
+    .credit-title {
+        font-size: 0.7rem !important;
+    }
+}
