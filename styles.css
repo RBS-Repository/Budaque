@@ -1697,7 +1697,7 @@ body {
     }
 }
 
-/* Testimonials Section */
+/* Testimonials Section - Updated Design */
 .testimonials {
     padding: 5rem 2rem;
     display: flex;
@@ -1710,40 +1710,61 @@ body {
     backdrop-filter: blur(20px);
     padding: 3rem 5rem;
     border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 0 2px rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
     max-width: 1200px;
     width: 95%;
+    position: relative;
+    overflow: hidden;
 }
 
-.testimonials h2 {
-    color: #00ff88;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
+.testimonial-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 4rem; /* Added gap between slider sections */
 }
 
 .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    display: flex;
+    min-width: 100%;
+    gap: 2rem; /* Maintain original gap between cards */
+}
+
+/* Ensure smooth transition */
+.testimonial-slider {
+    transform: translateX(0);
+    will-change: transform;
+    padding: 0.5rem; /* Small padding to prevent edge touching */
+}
+
+/* Update the transform calculation in JavaScript if needed */
+.testimonial-slider.sliding {
+    transition: transform 0.5s ease;
+}
+
+/* Ensure container properly clips content */
+.testimonials-content {
+    overflow: hidden;
 }
 
 .testimonial-card {
+    flex: 1;
+    min-width: calc(33.333% - 2rem); /* Adjusted width calculation with new gap */
+    margin: 0; /* Reset margins */
     background: rgba(0, 0, 0, 0.3);
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: left;
-    transition: transform 0.3s ease;
+    padding: 2.5rem; /* Increased padding inside cards */
 }
 
 .testimonial-card:hover {
     transform: translateY(-5px);
+    border-color: rgba(0, 255, 136, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
 }
 
 .testimonial-text {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
     font-style: italic;
@@ -1752,45 +1773,384 @@ body {
 .client-info {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 0, 136, 0.1);
 }
 
 .client-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
     overflow: hidden;
+    border: 2px solid #ff0088;
+    box-shadow: 0 0 15px rgba(255, 0, 136, 0.3);
 }
 
 .client-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 10px;
+}
+
+.client-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 55px; /* Match image height */
 }
 
 .client-details h4 {
     color: #00ff88;
-    font-size: 1.1rem;
-    margin-bottom: 0.2rem;
+    margin: 0;
+    line-height: 1.4;
 }
 
 .client-details p {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
 }
 
+/* Responsive adjustment */
+@media screen and (max-width: 768px) {
+    .client-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .client-details {
+        height: 50px; /* Match mobile image height */
+    }
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+
+.slider-btn {
+    background: transparent;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: #00ff88;
+    color: #111111;
+    transform: translateY(-2px);
+}
+
+.slider-dots {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.dot:hover {
+    background: rgba(0, 255, 136, 0.5);
+}
+
+.dot.active {
+    background: #00ff88;
+    transform: scale(1.2);
+    border-color: rgba(0, 255, 136, 0.3);
+}
+
+/* Responsive adjustments */
 @media screen and (max-width: 1024px) {
-    .testimonial-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .testimonials-content {
+        padding: 2rem 3rem;
+    }
+    
+    .testimonial-card {
+        padding: 1.5rem;
     }
 }
 
 @media screen and (max-width: 768px) {
+    .testimonials {
+        padding: 3rem 1rem;
+    }
+
     .testimonials-content {
         padding: 2rem;
     }
-    
+
     .testimonial-grid {
-        grid-template-columns: 1fr;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 1.5rem;
     }
+
+    .testimonial-card {
+        min-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .testimonial-text {
+        font-size: 1rem;
+    }
+
+    .slider-controls {
+        margin-top: 2rem;
+    }
+
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .testimonials-content {
+        padding: 1.5rem;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+
+    .testimonial-text {
+        font-size: 0.95rem;
+    }
+
+    .client-info {
+        gap: 0.8rem;
+    }
+
+    .client-image {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Update Testimonials Heading */
+.testimonials-content h2 {
+    color: #00ff88;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.testimonials-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #ff0088;
+    border-radius: 2px;
+}
+
+/* Responsive adjustments for the heading */
+@media screen and (max-width: 768px) {
+    .testimonials-content h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .testimonials-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+}
+
+/* Fix mobile view card layout */
+@media screen and (max-width: 768px) {
+    .testimonial-slider {
+        gap: 0; /* Remove gap between slides for mobile */
+    }
+
+    .testimonial-grid {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 0; /* Remove gap between cards */
+        width: 100%;
+    }
+
+    .testimonial-card {
+        min-width: 100%;
+        flex: 0 0 100%;
+        margin: 0; /* Remove any margins */
+        transform: none; /* Remove any transforms */
+    }
+
+    /* Ensure all cards in second slide follow the same layout */
+    .testimonial-grid:nth-child(2) .testimonial-card {
+        min-width: 100%;
+        flex: 0 0 100%;
+        margin: 0;
+        padding: 1.5rem;
+    }
+
+    /* Add spacing between visible cards */
+    .testimonial-card:not(:last-child) {
+        margin-right: 1rem;
+    }
+}
+
+/* Extra small devices - maintain consistent layout */
+@media screen and (max-width: 480px) {
+    .testimonial-grid:nth-child(2) .testimonial-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile testimonial fixes - show one card at a time */
+@media screen and (max-width: 768px) {
+    .testimonials-content {
+        padding: 2rem;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .testimonial-slider {
+        display: flex;
+        width: 100%;
+        gap: 0;
+    }
+
+    /* Adjust grid to show all cards in a single row */
+    .testimonial-grid {
+        display: flex;
+        min-width: 100%;
+        gap: 0;
+    }
+
+    /* Make all cards appear in a single line */
+    .testimonial-grid:first-child,
+    .testimonial-grid:nth-child(2) {
+        display: flex;
+        min-width: 600%; /* Width for all 6 cards */
+    }
+
+    .testimonial-card {
+        width: calc(100% / 6); /* Each card takes 1/6 of the total width */
+        min-width: calc(100% / 6);
+        flex: 0 0 calc(100% / 6);
+        padding: 1.5rem;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* Ensure smooth sliding */
+    .testimonial-slider {
+        transition: transform 0.5s ease;
+    }
+
+    /* Update dots for all 6 slides */
+    .slider-dots {
+        display: flex;
+        gap: 0.8rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* Adjust slider controls */
+    .slider-controls {
+        margin-top: 2rem;
+        padding: 0 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+    .testimonials-content {
+        padding: 1.5rem;
+    }
+
+    .testimonial-card {
+        padding: 1.2rem;
+    }
+}
+
+/* Desktop testimonial fixes */
+@media screen and (min-width: 769px) {
+    .testimonial-grid {
+        display: flex;
+        min-width: 100%;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .testimonial-card {
+        flex: 1;
+        min-width: calc(33.333% - 1.33rem);
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(0, 255, 136, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 255, 136, 0.1);
+    }
+
+    .testimonial-slider {
+        display: flex;
+        transition: transform 0.5s ease;
+        gap: 0;
+    }
+
+    /* Ensure second grid of cards matches first */
+    .testimonial-grid:nth-child(2) {
+        min-width: 100%;
+    }
+
+    .testimonial-grid:nth-child(2) .testimonial-card {
+        flex: 1;
+        min-width: calc(33.333% - 1.33rem);
+    }
+}
+
+/* Keep existing mobile styles unchanged */
+@media screen and (max-width: 768px) {
+    /* ... existing mobile styles ... */
 }

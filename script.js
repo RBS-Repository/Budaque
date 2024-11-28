@@ -227,3 +227,95 @@ function scrollAnimation() {
 // Call on scroll and on load
 window.addEventListener('scroll', scrollAnimation);
 window.addEventListener('load', scrollAnimation);
+
+// Testimonial Slider
+class TestimonialSlider {
+    constructor() {
+        this.slider = document.querySelector('.testimonial-slider');
+        this.slides = document.querySelectorAll('.testimonial-grid');
+        this.prevBtn = document.querySelector('.prev-btn');
+        this.nextBtn = document.querySelector('.next-btn');
+        this.dots = document.querySelectorAll('.dot');
+        this.currentSlide = 0;
+        this.slideCount = this.slides.length;
+        
+        this.init();
+    }
+
+    init() {
+        // Hide all slides except first
+        this.updateSlides();
+        
+        // Add event listeners
+        this.prevBtn.addEventListener('click', () => this.prevSlide());
+        this.nextBtn.addEventListener('click', () => this.nextSlide());
+        
+        // Add dot click handlers
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goToSlide(index));
+        });
+
+        // Add touch support
+        this.addTouchSupport();
+    }
+
+    updateSlides() {
+        this.slider.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+        
+        // Update dots
+        this.dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentSlide);
+        });
+    }
+
+    prevSlide() {
+        this.currentSlide = (this.currentSlide - 1 + this.slideCount) % this.slideCount;
+        this.updateSlides();
+    }
+
+    nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.slideCount;
+        this.updateSlides();
+    }
+
+    
+
+    goToSlide(index) {
+        this.currentSlide = index;
+        this.updateSlides();
+    }
+
+    addTouchSupport() {
+        let startX, moveX;
+        const threshold = 100; // minimum distance for swipe
+
+        this.slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        this.slider.addEventListener('touchmove', (e) => {
+            moveX = e.touches[0].clientX;
+        });
+
+        this.slider.addEventListener('touchend', () => {
+            if (!startX || !moveX) return;
+            
+            const diff = startX - moveX;
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    this.nextSlide();
+                } else {
+                    this.prevSlide();
+                }
+            }
+            
+            startX = null;
+            moveX = null;
+        });
+    }
+}
+
+// Initialize slider when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new TestimonialSlider();
+});
