@@ -327,3 +327,35 @@ document.querySelectorAll('.faq-question').forEach(question => {
         faqItem.classList.toggle('active');
     });
 });
+
+// View More Projects functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const viewMoreBtn = document.getElementById('view-more-btn');
+    const hiddenProjects = document.querySelectorAll('.hidden-project');
+    let isShowingAll = false;
+
+    if (viewMoreBtn) {
+        viewMoreBtn.addEventListener('click', () => {
+            if (!isShowingAll) {
+                // Show all projects
+                hiddenProjects.forEach(project => {
+                    project.style.display = 'block';
+                    // Add fade-in animation
+                    setTimeout(() => {
+                        project.style.opacity = '1';
+                    }, 10);
+                });
+                viewMoreBtn.textContent = 'Show Less';
+            } else {
+                // Hide projects
+                hiddenProjects.forEach(project => {
+                    project.style.display = 'none';
+                });
+                viewMoreBtn.textContent = 'View More Projects';
+                // Scroll back to projects section
+                document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+            }
+            isShowingAll = !isShowingAll;
+        });
+    }
+});

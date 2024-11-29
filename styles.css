@@ -2273,3 +2273,33 @@ body {
         gap: 15px;
     }
 }
+
+.hidden-project {
+    display: none;
+}
+
+.view-more-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.view-more-btn {
+    background: linear-gradient(45deg, #00ff88, #0088ff);
+    color: #111;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 500;
+}
+
+.view-more-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.view-more-btn.hidden {
+    display: none;
+}
