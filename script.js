@@ -61,23 +61,28 @@ class Background {
             alpha: true
         });
         this.geometries = [];
+        this.mouseX = 0;
+        this.mouseY = 0;
+        this.targetX = 0;
+        this.targetY = 0;
         
         this.init();
+        this.addEventListeners();
     }
 
     createGeometry() {
         const geometryTypes = [
-            new THREE.TetrahedronGeometry(1),
-            new THREE.OctahedronGeometry(1),
-            new THREE.IcosahedronGeometry(1),
-            new THREE.TorusGeometry(0.8, 0.3, 16, 100)
+            new THREE.TorusGeometry(1, 0.3, 16, 100),
+            new THREE.IcosahedronGeometry(1, 0),
+            new THREE.OctahedronGeometry(1, 0),
+            new THREE.TetrahedronGeometry(1, 0)
         ];
 
         const colors = [
-            0x00ff88,  // Cyan
-            0xff0088,  // Pink
-            0x0088ff,  // Blue
-            0x88ff00   // Green
+            new THREE.Color(0x00ff88),  // Cyan
+            new THREE.Color(0xff0088),  // Pink
+            new THREE.Color(0x0088ff),  // Blue
+            new THREE.Color(0x88ff00)   // Green
         ];
 
         const material = new THREE.MeshPhongMaterial({
@@ -85,130 +90,149 @@ class Background {
             wireframe: true,
             transparent: true,
             opacity: 0.3,
-            shininess: 100
+            shininess: 100,
+            side: THREE.DoubleSide
         });
 
         const geometry = geometryTypes[Math.floor(Math.random() * geometryTypes.length)];
         const mesh = new THREE.Mesh(geometry, material);
 
-        // Initial position
-        mesh.position.x = (Math.random() - 0.5) * 30;
-        mesh.position.y = (Math.random() - 0.5) * 30;
-        mesh.position.z = (Math.random() - 0.5) * 15 - 10;
+        // Position
+        mesh.position.x = (Math.random() - 0.5) * 40;
+        mesh.position.y = (Math.random() - 0.5) * 40;
+        mesh.position.z = (Math.random() - 0.5) * 30 - 10;
 
-        // Add movement properties
+        // Movement properties
         mesh.velocity = {
             x: (Math.random() - 0.5) * 0.05,
             y: (Math.random() - 0.5) * 0.05,
             z: (Math.random() - 0.5) * 0.02
         };
 
+        // Rotation
         mesh.rotation.x = Math.random() * Math.PI;
         mesh.rotation.y = Math.random() * Math.PI;
 
+        // Rotation speed
         mesh.rotationSpeed = {
             x: (Math.random() - 0.5) * 0.02,
             y: (Math.random() - 0.5) * 0.02,
             z: (Math.random() - 0.5) * 0.02
         };
 
-        const scale = 0.5 + Math.random() * 2;
-        mesh.scale.set(scale, scale, scale);
+        // Custom properties for animations
+        mesh.baseScale = 0.5 + Math.random() * 2;
+        mesh.scale.setScalar(mesh.baseScale);
+        mesh.originalColor = material.color.clone();
+        mesh.targetColor = material.color.clone();
+        mesh.colorTime = Math.random() * Math.PI * 2;
+        mesh.pulseSpeed = 0.5 + Math.random() * 0.5;
+        mesh.orbitRadius = 5 + Math.random() * 15;
+        mesh.orbitSpeed = 0.1 + Math.random() * 0.2;
+        mesh.orbitOffset = Math.random() * Math.PI * 2;
 
         return mesh;
     }
 
     init() {
-        // Setup renderer with dark background
+        // Renderer setup
         this.renderer.setPixelRatio(window.devicePixelRatio);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.setClearColor(0x111111, 1); // Dark background
+        this.renderer.setClearColor(0x111111, 1);
 
-        // Stronger lighting for better color visibility
+        // Lighting
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
         this.scene.add(ambientLight);
 
-        const pointLight = new THREE.PointLight(0xffffff, 1.5);
-        pointLight.position.set(5, 5, 5);
-        this.scene.add(pointLight);
+        const pointLight1 = new THREE.PointLight(0x00ff88, 1);
+        pointLight1.position.set(5, 5, 5);
+        this.scene.add(pointLight1);
 
-        // Add a second point light for better illumination
-        const pointLight2 = new THREE.PointLight(0xffffff, 1);
+        const pointLight2 = new THREE.PointLight(0xff0088, 1);
         pointLight2.position.set(-5, -5, -5);
         this.scene.add(pointLight2);
 
-        // Add more shapes for a denser background
-        for (let i = 0; i < 50; i++) {  // Increased number of shapes
+        // Add geometries
+        for (let i = 0; i < 60; i++) {
             const mesh = this.createGeometry();
             this.geometries.push(mesh);
             this.scene.add(mesh);
         }
 
-        // Position camera
-        this.camera.position.z = 15;
+        // Camera position
+        this.camera.position.z = 20;
 
-        // Animation
-        const animate = () => {
-            requestAnimationFrame(animate);
+        // Start animation
+        this.animate();
+    }
 
-            this.geometries.forEach(mesh => {
-                // Update position
-                mesh.position.x += mesh.velocity.x;
-                mesh.position.y += mesh.velocity.y;
-                mesh.position.z += mesh.velocity.z;
+    addEventListeners() {
+        // Mouse move event
+        document.addEventListener('mousemove', (event) => {
+            this.mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            this.mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
 
-                // Bounce off boundaries
-                const bounds = 20;
-                if (Math.abs(mesh.position.x) > bounds) {
-                    mesh.velocity.x *= -1;
-                }
-                if (Math.abs(mesh.position.y) > bounds) {
-                    mesh.velocity.y *= -1;
-                }
-                if (Math.abs(mesh.position.z) > bounds) {
-                    mesh.velocity.z *= -1;
-                }
-
-                // Rotate
-                mesh.rotation.x += mesh.rotationSpeed.x;
-                mesh.rotation.y += mesh.rotationSpeed.y;
-                mesh.rotation.z += mesh.rotationSpeed.z;
-
-                // Add wobble effect
-                mesh.position.x += Math.sin(Date.now() * 0.001 + mesh.position.y) * 0.02;
-                mesh.position.y += Math.cos(Date.now() * 0.001 + mesh.position.x) * 0.02;
-            });
-
-            this.renderer.render(this.scene, this.camera);
-        };
-
-        animate();
-
-        // Handle resize
+        // Window resize event
         window.addEventListener('resize', () => {
             this.camera.aspect = window.innerWidth / window.innerHeight;
             this.camera.updateProjectionMatrix();
             this.renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // Update mouse movement to be more dramatic
-        document.addEventListener('mousemove', (event) => {
-            const mouseX = (event.clientX / window.innerWidth) * 2 - 1;
-            const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
-
-            this.geometries.forEach(mesh => {
-                // Add slight attraction to mouse position
-                mesh.velocity.x += mouseX * 0.001;
-                mesh.velocity.y += mouseY * 0.001;
-
-                // Limit maximum velocity
-                const maxVelocity = 0.1;
-                mesh.velocity.x = Math.max(Math.min(mesh.velocity.x, maxVelocity), -maxVelocity);
-                mesh.velocity.y = Math.max(Math.min(mesh.velocity.y, maxVelocity), -maxVelocity);
-            });
+        // Scroll event for parallax
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            this.camera.position.y = -(scrolled * 0.005);
         });
     }
+
+    animate() {
+        requestAnimationFrame(this.animate.bind(this));
+
+        // Smooth camera movement
+        this.targetX += (this.mouseX - this.targetX) * 0.05;
+        this.targetY += (this.mouseY - this.targetY) * 0.05;
+        this.camera.rotation.x = this.targetY * 0.2;
+        this.camera.rotation.y = this.targetX * 0.2;
+
+        const time = Date.now() * 0.001;
+
+        this.geometries.forEach((mesh, index) => {
+            // Orbital movement
+            const orbitAngle = time * mesh.orbitSpeed + mesh.orbitOffset;
+            mesh.position.x = Math.cos(orbitAngle) * mesh.orbitRadius + mesh.velocity.x;
+            mesh.position.y = Math.sin(orbitAngle) * mesh.orbitRadius + mesh.velocity.y;
+            
+            // Rotation
+            mesh.rotation.x += mesh.rotationSpeed.x;
+            mesh.rotation.y += mesh.rotationSpeed.y;
+            mesh.rotation.z += mesh.rotationSpeed.z;
+
+            // Pulsing scale
+            const pulse = Math.sin(time * mesh.pulseSpeed) * 0.1 + 1;
+            mesh.scale.setScalar(mesh.baseScale * pulse);
+
+            // Color transition
+            mesh.colorTime += 0.01;
+            const hue = (mesh.colorTime + index * 0.1) % 1;
+            mesh.material.color.setHSL(hue, 0.6, 0.6);
+
+            // Interactive movement
+            const distance = this.camera.position.distanceTo(mesh.position);
+            const influence = Math.max(0, 1 - distance / 20);
+            mesh.position.x += this.targetX * influence * 0.1;
+            mesh.position.y += this.targetY * influence * 0.1;
+        });
+
+        this.renderer.render(this.scene, this.camera);
+    }
 }
+
+// Initialize background when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new Background();
+});
 
 // Scroll Animation
 function scrollAnimation() {
@@ -358,4 +382,40 @@ document.addEventListener('DOMContentLoaded', () => {
             isShowingAll = !isShowingAll;
         });
     }
+});
+
+// Add this if you haven't already
+function scrollAnimation() {
+    const elements = document.querySelectorAll('.fade-up');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if(elementPosition < screenPosition) {
+            element.classList.add('active');
+        }
+    });
+}
+
+// Call on scroll and on load
+window.addEventListener('scroll', scrollAnimation);
+window.addEventListener('load', scrollAnimation);
+
+// Add scroll progress indicator
+const addScrollProgress = () => {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+        const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = `${progress}%`;
+    });
+};
+
+// Initialize scroll progress
+document.addEventListener('DOMContentLoaded', () => {
+    addScrollProgress();
 });
