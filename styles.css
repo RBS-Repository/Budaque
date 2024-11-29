@@ -9,6 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     scroll-behavior: smooth;
+    cursor: none;
 }
 
 /* Navigation */
@@ -2478,4 +2479,54 @@ body {
     background: linear-gradient(to right, #00ff88, #0088ff);
     z-index: 1000;
     transition: width 0.2s ease;
+}
+
+/* Cursor Follower */
+.cursor-follower {
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 255, 136, 0.5);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+    mix-blend-mode: difference;
+}
+
+.cursor-follower.cursor-hover {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 255, 136, 0.8);
+}
+
+/* Hide cursor on mobile */
+@media (max-width: 768px) {
+    .cursor-follower {
+        display: none;
+    }
+}
+
+/* Show default cursor */
+* {
+    cursor: default !important;
+}
+
+/* Show pointer cursor for clickable elements */
+a, 
+button, 
+input[type="submit"],
+input[type="button"],
+.clickable {
+    cursor: pointer !important;
+}
+
+/* Hide cursor on form inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    cursor: text !important;
 }

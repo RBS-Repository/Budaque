@@ -419,3 +419,56 @@ const addScrollProgress = () => {
 document.addEventListener('DOMContentLoaded', () => {
     addScrollProgress();
 });
+
+// Cursor follower
+class CursorFollower {
+    constructor() {
+        this.cursor = document.createElement('div');
+        this.cursor.className = 'cursor-follower';
+        document.body.appendChild(this.cursor);
+
+        this.cursorX = 0;
+        this.cursorY = 0;
+        this.currentX = 0;
+        this.currentY = 0;
+
+        this.init();
+    }
+
+    init() {
+        // Track cursor position
+        document.addEventListener('mousemove', (e) => {
+            this.cursorX = e.clientX;
+            this.cursorY = e.clientY;
+            
+            // Immediate position update
+            this.cursor.style.transform = `translate(${this.cursorX}px, ${this.cursorY}px)`;
+        });
+
+        // Hide on mouse leave
+        document.addEventListener('mouseleave', () => {
+            this.cursor.style.opacity = '0';
+        });
+
+        // Show on mouse enter
+        document.addEventListener('mouseenter', () => {
+            this.cursor.style.opacity = '1';
+        });
+
+        // Add hover effect for clickable elements
+        const clickables = document.querySelectorAll('a, button, .clickable');
+        clickables.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                this.cursor.classList.add('cursor-hover');
+            });
+            element.addEventListener('mouseleave', () => {
+                this.cursor.classList.remove('cursor-hover');
+            });
+        });
+    }
+}
+
+// Initialize cursor follower when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new CursorFollower();
+});
