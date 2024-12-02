@@ -36,15 +36,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Form Submission
-const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Add your form submission logic here
-    alert('Message sent successfully!');
-    contactForm.reset();
-});
-
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     new Background();
@@ -834,4 +825,78 @@ AOS.init({
     }
 });
 
+// Form handling with SweetAlert2
+function handleSubmit(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Show loading state with SweetAlert2
+    Swal.fire({
+        title: 'Sending Message...',
+        text: 'Please wait',
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        willOpen: () => {
+            Swal.showLoading();
+        },
+        background: 'rgba(17, 17, 17, 0.95)',
+        color: '#ffffff'
+    });
+
+    // Use fetch API to submit the form asynchronously
+    fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.ok) {
+            form.reset();
+            Swal.fire({
+                icon: 'success',
+                title: 'Message Sent!',
+                text: 'Thank you for contacting us. We will get back to you soon!',
+                confirmButtonColor: '#00ff88',
+                background: 'rgba(17, 17, 17, 0.95)',
+                color: '#ffffff',
+                iconColor: '#00ff88'
+            });
+        } else {
+            throw new Error('Form submission failed');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! Please try again.',
+            confirmButtonColor: '#ff3366',
+            background: 'rgba(17, 17, 17, 0.95)',
+            color: '#ffffff',
+            iconColor: '#ff3366'
+        });
+    });
+
+    return false;
+}
+
+// Make sure the form exists before adding the event listener
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    if (form) {
+        form.addEventListener('submit', handleSubmit);
+    }
+});
 

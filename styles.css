@@ -589,18 +589,37 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.form-group select,
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 1rem;
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
+    border-radius: 8px;
     color: #ffffff;
     font-size: 1rem;
     transition: all 0.3s ease;
 }
 
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2300ff88' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: rgba(17, 17, 17, 0.95);
+    color: #ffffff;
+    padding: 1rem;
+}
+
+.form-group select:focus,
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
@@ -608,9 +627,16 @@ body {
     box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
 }
 
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
+.form-group select:invalid {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group select:hover {
+    border-color: rgba(0, 255, 136, 0.5);
+}
+
+.form-group select option[disabled] {
+    color: rgba(255, 255, 255, 0.3);
 }
 
 .form-group input::placeholder,
@@ -646,9 +672,11 @@ body {
         text-align: center;
     }
 
+    .form-group select,
     .form-group input,
     .form-group textarea {
         padding: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -2447,4 +2475,175 @@ html {
     [data-aos].aos-animate {
         opacity: 1;
     }
+}
+
+/* Updated Contact Form Styles */
+.contact-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-control-input,
+.form-control-select {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control-input:focus,
+.form-control-select:focus {
+    outline: none;
+    border-color: #00ff88;
+    box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+}
+
+.form-control-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2300ff88' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.label-control {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: transparent;
+}
+
+.form-control-input:focus ~ .label-control,
+.form-control-input:not(:placeholder-shown) ~ .label-control,
+.form-control-select:focus ~ .label-control,
+.form-control-select:not([value=""]) ~ .label-control {
+    top: -0.5rem;
+    left: 0.8rem;
+    font-size: 0.8rem;
+    color: #00ff88;
+    padding: 0 0.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+}
+
+.form-control-submit-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: #00ff88;
+    border: 2px solid #00ff88;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-control-submit-button:hover {
+    background: #00ff88;
+    color: #111111;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.help-block {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #ff3366;
+    min-height: 1.2em;
+}
+
+/* Form Message Styles */
+.form-message {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form-message .h3 {
+    font-size: 1.1rem;
+    color: #00ff88;
+    transition: opacity 0.3s ease;
+}
+
+.form-message .hidden {
+    opacity: 0;
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .contact-form-container {
+        padding: 1.5rem;
+    }
+
+    .form-control-input,
+    .form-control-select,
+    .form-control-submit-button {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .label-control {
+        font-size: 0.9rem;
+    }
+
+    .form-control-input:focus ~ .label-control,
+    .form-control-input:not(:placeholder-shown) ~ .label-control,
+    .form-control-select:focus ~ .label-control,
+    .form-control-select:not([value=""]) ~ .label-control {
+        font-size: 0.75rem;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 480px) {
+    .contact-form-container {
+        padding: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-control-submit-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* SweetAlert2 Custom Styles */
+.swal2-popup {
+    background: rgba(17, 17, 17, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.swal2-title,
+.swal2-content {
+    color: #ffffff !important;
+}
+
+.swal2-confirm {
+    background: #00ff88 !important;
+    color: #111111 !important;
+}
+
+.swal2-cancel {
+    background: #ff3366 !important;
 }

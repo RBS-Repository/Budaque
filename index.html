@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMMC</title>
+    <link rel="icon" type="image/x-icon" href="Systems and technology programming company logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="Systems and technology programming company logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Systems and technology programming company logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Systems and technology programming company logo.png">
+    <link rel="manifest" href="Systems and technology programming company logo.png">
+    <link rel="mask-icon" href="Systems and technology programming company logo.png" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -11,6 +19,7 @@
     <!-- Add before closing body tag, after other scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -519,15 +528,27 @@
       
                 <!-- Contact Form -->
                 <div class="contact-form-container fade-up delay-2">
-                    <form id="contact-form" action="https://formspree.io/f/xgveklqj" method="POST">
+                    <form id="contact-form" action="https://formspree.io/f/mnnqoeel" method="POST" onsubmit="return handleSubmit(event)" data-ajax="true">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required placeholder="Your Name">
+                            <input type="text" id="name" name="Name" required placeholder="Your Name">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="Your Email">
+                            <input type="email" id="email" name="Email" required placeholder="Your Email">
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                            <select name="Service" id="service" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Mobile Development">Mobile Development</option>
+                                <option value="UI/UX Design">UI/UX Design</option>
+                                <option value="Database Design">Database Design</option>
+                                <option value="Full Stack Development">Full Stack Development</option>
+                                <option value="Consulting">Consulting</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="Message" required placeholder="Your Message"></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
