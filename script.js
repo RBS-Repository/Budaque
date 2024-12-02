@@ -570,3 +570,268 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Add this JavaScript to handle the slider functionality
+let currentIndex = 0;
+const sections = document.querySelectorAll('.slider section');
+const totalSections = sections.length;
+
+document.querySelector('.next').addEventListener('click', () => {
+    if (currentIndex < totalSections - 1) {
+        currentIndex++;
+        updateSlider();
+    }
+});
+
+document.querySelector('.prev').addEventListener('click', () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+    }
+});
+
+function updateSlider() {
+    const slider = document.querySelector('.slider');
+    slider.style.transform = `translateY(-${currentIndex * 100}vh)`;
+}
+
+// Add this after your existing code
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS with custom settings
+    AOS.init({
+        duration: 800,           // Animation duration
+        easing: 'ease-in-out',   // Easing type
+        once: false,             // Whether animation should happen only once
+        mirror: true,            // Whether elements should animate out while scrolling past them
+        anchorPlacement: 'top-bottom', // Defines which position of the element regarding to window should trigger the animation
+        offset: 120,             // Offset (in px) from the original trigger point
+        delay: 100,              // Default delay for animations
+        
+        // Disable animations on mobile devices if needed
+        disable: function() {
+            return window.innerWidth < 768;
+        }
+    });
+
+    // Refresh AOS when dynamic content is loaded
+    document.addEventListener('lazyloaded', function() {
+        AOS.refresh();
+    });
+
+    // Refresh AOS when images are loaded
+    window.addEventListener('load', function() {
+        AOS.refresh();
+    });
+
+    // Refresh AOS on window resize
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            AOS.refresh();
+        }, 250);
+    });
+});
+
+// Add smooth scrolling with AOS update
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Update AOS animations after smooth scroll
+            setTimeout(() => {
+                AOS.refresh();
+            }, 1000);
+        }
+    });
+});
+
+// Initialize ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Wait for DOM content to be loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if device is mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    // Initialize ScrollTrigger with different settings for mobile
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Section Animation - simplified for mobile
+    gsap.from(".hero-content", {
+        scrollTrigger: {
+            trigger: ".hero",
+            start: "top 80%",
+            toggleActions: isMobile ? "play none none none" : "play none none reverse"
+        },
+        y: isMobile ? 30 : 100,
+        opacity: 0,
+        duration: isMobile ? 0.6 : 1
+    });
+
+    // Skills Animation - reduced stagger for mobile
+    gsap.from(".skills span", {
+        scrollTrigger: {
+            trigger: ".skills",
+            start: "top 90%"
+        },
+        scale: 0.8,
+        opacity: 0,
+        duration: isMobile ? 0.3 : 0.5,
+        stagger: isMobile ? 0.05 : 0.1
+    });
+
+    // Project Cards Animation - adjusted for mobile
+    gsap.from(".project-card", {
+        scrollTrigger: {
+            trigger: ".project-grid",
+            start: "top 90%"
+        },
+        y: isMobile ? 20 : 50,
+        opacity: 0,
+        duration: isMobile ? 0.4 : 0.6,
+        stagger: isMobile ? 0.1 : 0.2
+    });
+
+    // Service Cards Animation - simplified for mobile
+    gsap.from(".service-card", {
+        scrollTrigger: {
+            trigger: ".services-grid",
+            start: "top 90%"
+        },
+        y: isMobile ? 20 : 50,
+        opacity: 0,
+        duration: isMobile ? 0.4 : 0.6,
+        stagger: isMobile ? 0.1 : 0.2
+    });
+
+    // Team Cards Animation - adjusted for mobile
+    gsap.from(".team-card", {
+        scrollTrigger: {
+            trigger: ".team-grid",
+            start: "top 90%"
+        },
+        scale: isMobile ? 0.9 : 0.8,
+        opacity: 0,
+        duration: isMobile ? 0.4 : 0.6,
+        stagger: isMobile ? 0.1 : 0.2
+    });
+
+    // Process Cards Animation - simplified for mobile
+    gsap.from(".process-card", {
+        scrollTrigger: {
+            trigger: ".process-grid",
+            start: "top 90%"
+        },
+        x: isMobile ? -20 : -50,
+        opacity: 0,
+        duration: isMobile ? 0.4 : 0.6,
+        stagger: isMobile ? 0.1 : 0.2
+    });
+
+    // Testimonial Cards Animation - adjusted for mobile
+    gsap.from(".testimonial-card", {
+        scrollTrigger: {
+            trigger: ".testimonial-slider",
+            start: "top 90%"
+        },
+        y: isMobile ? 20 : 50,
+        opacity: 0,
+        duration: isMobile ? 0.4 : 0.6,
+        stagger: isMobile ? 0.1 : 0.2
+    });
+
+    // Disable parallax effect on mobile
+    if (!isMobile) {
+        gsap.to("#bg-canvas", {
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1
+            },
+            y: (i, target) => -ScrollTrigger.maxScroll(window) * 0.1,
+            ease: "none"
+        });
+    }
+
+    // Simplified heading animation for mobile
+    const headings = document.querySelectorAll('h2');
+    headings.forEach(heading => {
+        if (isMobile) {
+            // Simple fade in for mobile
+            gsap.from(heading, {
+                scrollTrigger: {
+                    trigger: heading,
+                    start: "top 90%"
+                },
+                opacity: 0,
+                y: 20,
+                duration: 0.4
+            });
+        } else {
+            // Original split text animation for desktop
+            const text = heading.textContent;
+            const chars = text.split('');
+            heading.textContent = '';
+            chars.forEach(char => {
+                const span = document.createElement('span');
+                span.textContent = char;
+                heading.appendChild(span);
+            });
+
+            gsap.from(heading.children, {
+                scrollTrigger: {
+                    trigger: heading,
+                    start: "top 80%"
+                },
+                opacity: 0,
+                y: 20,
+                duration: 0.4,
+                stagger: 0.02
+            });
+        }
+    });
+
+    // Handle resize events
+    window.addEventListener('resize', () => {
+        ScrollTrigger.refresh();
+    });
+
+    // Optimize smooth scroll for mobile
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                gsap.to(window, {
+                    duration: isMobile ? 0.6 : 1,
+                    scrollTo: {
+                        y: target,
+                        offsetY: isMobile ? 50 : 70
+                    },
+                    ease: "power2.inOut"
+                });
+            }
+        });
+    });
+});
+
+// Update AOS settings for better mobile performance
+AOS.init({
+    duration: window.innerWidth <= 768 ? 600 : 800,
+    easing: 'ease-out',
+    once: true,
+    mirror: false,
+    disable: function() {
+        return window.innerWidth <= 480;
+    }
+});
+
+

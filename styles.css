@@ -8,8 +8,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    scroll-behavior: smooth;
-    cursor: none;
+    scroll-behavior    cursor: none;
 }
 
 /* Navigation */
@@ -2283,5 +2282,169 @@ textarea {
     .prev-btn,
     .next-btn {
         font-size: 1.2rem;
+    }
+}
+
+/* Add these AOS animation enhancements */
+
+/* Custom AOS animations */
+[data-aos] {
+    pointer-events: none;
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
+
+/* Custom animation classes */
+[data-aos="zoom-in-up"] {
+    transform: translate3d(0, 100px, 0) scale(0.6);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos="zoom-in-up"].aos-animate {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+}
+
+/* Enhanced fade animations */
+[data-aos="enhanced-fade"] {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+    transition-property: transform, opacity;
+}
+
+[data-aos="enhanced-fade"].aos-animate {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* Slide animations */
+[data-aos="slide-left"] {
+    transform: translate3d(100px, 0, 0);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos="slide-left"].aos-animate {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+
+[data-aos="slide-right"] {
+    transform: translate3d(-100px, 0, 0);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+
+[data-aos="slide-right"].aos-animate {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+}
+
+/* Animation duration classes */
+[data-aos][data-aos-duration="400"] { transition-duration: 400ms; }
+[data-aos][data-aos-duration="800"] { transition-duration: 800ms; }
+[data-aos][data-aos-duration="1200"] { transition-duration: 1200ms; }
+[data-aos][data-aos-duration="1600"] { transition-duration: 1600ms; }
+
+/* Animation delay classes */
+[data-aos][data-aos-delay="200"] { transition-delay: 200ms; }
+[data-aos][data-aos-delay="400"] { transition-delay: 400ms; }
+[data-aos][data-aos-delay="600"] { transition-delay: 600ms; }
+[data-aos][data-aos-delay="800"] { transition-delay: 800ms; }
+
+/* Mobile optimization */
+@media screen and (max-width: 768px) {
+    [data-aos] {
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+    
+    [data-aos].aos-animate {
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
+/* ScrollTrigger Animation Helper Classes */
+.reveal {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.reveal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Optional: Add smooth scrolling to the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure elements are properly positioned for animations */
+.gsap-reveal {
+    visibility: hidden;
+}
+
+/* Optional: Add perspective for 3D animations */
+.perspective-wrapper {
+    perspective: 1000px;
+}
+
+/* Optional: Add will-change for better performance */
+.will-animate {
+    will-change: transform, opacity;
+}
+
+/* Mobile Animation Optimizations */
+@media screen and (max-width: 768px) {
+    /* Reduce or eliminate transform distances for smoother mobile animations */
+    [data-aos="fade-up"] {
+        transform: translate3d(0, 30px, 0);
+    }
+
+    [data-aos="fade-down"] {
+        transform: translate3d(0, -30px, 0);
+    }
+
+    [data-aos="fade-right"] {
+        transform: translate3d(-30px, 0, 0);
+    }
+
+    [data-aos="fade-left"] {
+        transform: translate3d(30px, 0, 0);
+    }
+
+    /* Optimize animations for better performance */
+    .will-animate {
+        will-change: auto;
+    }
+
+    /* Disable hover animations on mobile */
+    .hover-scale {
+        transform: none !important;
+    }
+
+    /* Reduce animation complexity */
+    .gsap-reveal {
+        visibility: visible;
+        opacity: 0;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+    /* Further simplify animations */
+    [data-aos] {
+        transform: none !important;
+        opacity: 0;
+        transition: opacity 0.4s ease-out !important;
+    }
+
+    [data-aos].aos-animate {
+        opacity: 1;
     }
 }
