@@ -1,3 +1,40 @@
+:root {
+    /* Dark theme (default) */
+    --bg-color: #111111;
+    --text-color: #ffffff;
+    --primary-color: #00ff88;
+    --secondary-color: #ff0088;
+    --card-bg: rgba(17, 17, 17, 0.8);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(17, 17, 17, 0.8);
+    --testimonial-bg: rgba(0, 0, 0, 0.2);
+    --input-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Light theme */
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --primary-color: #00cc6f;
+    --secondary-color: #e6007a;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --card-border: rgba(0, 0, 0, 0.1);
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --testimonial-bg: rgba(240, 240, 240, 0.9);
+    --input-bg: rgba(240, 240, 240, 0.9);
+}
+
+/* Fix the scroll-behavior line */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    cursor: none;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 /* General Styles */
 * {
     margin: 0;
@@ -8,9 +45,11 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    scroll-behavior    cursor: none;
+    scroll-behavior: smooth;
+    cursor: none;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
-
 /* Navigation */
 .navbar {
     position: fixed;
@@ -19,6 +58,7 @@ body {
     width: 100%;
     z-index: 1000;
     padding: 1rem 0;
+    background: var(--nav-bg);
 }
 
 .nav-content {
@@ -49,7 +89,7 @@ body {
 }
 
 .nav-links a {
-    color: #ffffff;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
@@ -148,13 +188,13 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 4rem;
-    background: rgba(17, 17, 17, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(20px);
     padding: 3rem 5rem;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 2px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     max-width: 1200px;
     width: 95%;
     margin: 0 auto;
@@ -245,11 +285,13 @@ body {
     text-align: center;
     font-weight: 600;
     letter-spacing: 0.5px;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
 }
 
 .cta-button {
-    background-color: #00ff88;
-    color: #111111;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
     text-decoration: none;
     border-radius: 6px;
     margin-top: 2rem;
@@ -262,17 +304,17 @@ body {
 
 .secondary-button {
     background-color: transparent;
-    color: #ffffff;
+    color: var(--text-color);
     text-decoration: none;
-    border: 2px solid #ff0088;
+    border: 2px solid var(--secondary-color);
     border-radius: 6px;
     margin-top: 2rem;
     transition: all 0.3s ease;
 }
 
 .secondary-button:hover {
-    background-color: #ff0088;
-    color: #111111;
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
 }
 
 /* Animations */
@@ -355,13 +397,13 @@ body {
 
 .about-content {
     display: flex;
-    background: rgba(17, 17, 17, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(20px);
     padding: 3rem 5rem;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 2px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     max-width: 1200px;
     width: 95%;
 }
@@ -449,13 +491,13 @@ body {
 }
 
 .projects-content {
-    background: rgba(17, 17, 17, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(20px);
     padding: 3rem 5rem;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 2px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     max-width: 1200px;
     width: 95%;
 }
@@ -477,10 +519,10 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
     transition: transform 0.3s ease;
     animation: fadeInRotate 0.6s ease-out backwards;
 }
@@ -563,13 +605,13 @@ body {
 }
 
 .contact-content {
-    background: rgba(17, 17, 17, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(20px);
     padding: 3rem 5rem;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 2px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     max-width: 1200px;
     width: 95%;
 }
@@ -724,13 +766,13 @@ body {
 }
 
 .projects-content {
-    background: rgba(17, 17, 17, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(20px);
     padding: 3rem 5rem;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 2px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     width: 95%;
     max-width: 1200px;  /* Set a fixed max-width */
 }
@@ -787,13 +829,13 @@ body {
 }
 
 .services-content {
-    background: rgba(17, 17, 17, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(20px);
     padding: 3rem 5rem;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 2px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     max-width: 1200px;
     width: 95%;
 }
@@ -811,7 +853,7 @@ body {
 }
 
 .service-card {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     padding: 2rem;
     border-radius: 8px;
     text-align: center;
@@ -864,13 +906,13 @@ body {
 }
 
 .process-content {
-    background: rgba(17, 17, 17, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(20px);
     padding: 3rem 5rem;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 2px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     max-width: 1200px;
     width: 95%;
 }
@@ -888,7 +930,7 @@ body {
 }
 
 .process-card {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     padding: 2rem;
     border-radius: 8px;
     display: flex;
@@ -948,13 +990,13 @@ body {
 }
 
 .team-content {
-    background: rgba(17, 17, 17, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(20px);
     padding: 3rem 5rem;
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 2px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     max-width: 1200px;
     width: 95%;
 }
@@ -972,7 +1014,7 @@ body {
 }
 
 .team-card {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -2110,11 +2152,11 @@ textarea {
 }
 
 .testimonials-content {
-    background: rgba(17, 17, 17, 0.8);
+    background: var(--card-bg);
     backdrop-filter: blur(20px);
     padding: 3rem;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     max-width: 1200px;
     width: 95%;
 }
@@ -2145,9 +2187,9 @@ textarea {
     flex: 0 0 calc(33.333% - 1.33rem);
     min-width: calc(33.333% - 1.33rem);
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
     transition: all 0.3s ease;
     opacity: 0.7;
     transform: scale(0.95);
@@ -2646,4 +2688,563 @@ html {
 
 .swal2-cancel {
     background: #ff3366 !important;
+}
+
+/* Theme Variables */
+:root {
+    /* Dark theme (default) */
+    --bg-color: #111111;
+    --text-color: #ffffff;
+    --primary-color: #00ff88;
+    --secondary-color: #ff0088;
+    --card-bg: rgba(17, 17, 17, 0.8);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(17, 17, 17, 0.8);
+}
+
+/* Light theme */
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --primary-color: #00cc6f;
+    --secondary-color: #e6007a;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --card-border: rgba(0, 0, 0, 0.1);
+    --nav-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--primary-color);
+}
+
+.theme-toggle .fa-sun {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle .fa-sun {
+    display: block;
+}
+
+[data-theme="light"] .theme-toggle .fa-moon {
+    display: none;
+}
+
+/* Add these styles at the end of your CSS file */
+
+/* Hero Aurora Effect */
+.hero-content {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Create corner lines using pseudo-elements */
+.hero-content::before,
+.hero-content::after,
+.hero-content .diagonal-line:nth-child(1),
+.hero-content .diagonal-line:nth-child(2) {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 2px;
+    filter: blur(3px);
+    background: currentColor;
+    box-shadow: 
+        0 0 20px 2px currentColor,
+        0 0 40px 4px currentColor,
+        0 0 60px 6px currentColor;
+    animation: cornerGlow 3s ease-in-out infinite;
+}
+
+/* Top left corner */
+.hero-content::before {
+    top: 0;
+    left: 0;
+    color: #00ff88;
+}
+
+/* Top right corner */
+.hero-content::after {
+    top: 0;
+    right: 0;
+    color: #ff0088;
+}
+
+/* Bottom left corner */
+.hero-content .diagonal-line:nth-child(1) {
+    bottom: 0;
+    left: 0;
+    color: #ff0088;
+}
+
+/* Bottom right corner */
+.hero-content .diagonal-line:nth-child(2) {
+    bottom: 0;
+    right: 0;
+    color: #00ff88;
+}
+
+/* Add vertical parts of the corners */
+.hero-content::before,
+.hero-content::after,
+.hero-content .diagonal-line:nth-child(1),
+.hero-content .diagonal-line:nth-child(2) {
+    &::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 150px;
+        background: currentColor;
+        box-shadow: 
+            0 0 20px 2px currentColor,
+            0 0 40px 4px currentColor,
+            0 0 60px 6px currentColor;
+    }
+}
+
+/* Position vertical parts */
+.hero-content::before::after {
+    top: 0;
+    left: 0;
+}
+
+.hero-content::after::after {
+    top: 0;
+    right: 0;
+}
+
+.hero-content .diagonal-line:nth-child(1)::after {
+    bottom: 0;
+    left: 0;
+}
+
+.hero-content .diagonal-line:nth-child(2)::after {
+    bottom: 0;
+    right: 0;
+}
+
+@keyframes cornerGlow {
+    0%, 100% {
+        opacity: 0.7;
+        filter: blur(3px);
+    }
+    50% {
+        opacity: 1;
+        filter: blur(4px);
+    }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .hero-content::before,
+    .hero-content::after,
+    .hero-content .diagonal-line:nth-child(1),
+    .hero-content .diagonal-line:nth-child(2) {
+        width: 100px;
+        height: 2px;
+        
+        &::after {
+            width: 2px;
+            height: 100px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content::before,
+    .hero-content::after,
+    .hero-content .diagonal-line:nth-child(1),
+    .hero-content .diagonal-line:nth-child(2) {
+        width: 60px;
+        height: 2px;
+        
+        &::after {
+            width: 2px;
+            height: 60px;
+        }
+    }
+}
+
+/* Ensure content stays above the effects */
+.hero-text, 
+.profile-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hero Corner Strobing Effect */
+.hero-content {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Create corner lines with strobing effect */
+.hero-content::before,
+.hero-content::after,
+.hero-content .diagonal-line:nth-child(1),
+.hero-content .diagonal-line:nth-child(2) {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 2px;
+    background: currentColor;
+    filter: blur(2px);
+    animation: cornerStrobe 1.5s ease-in-out infinite;
+}
+
+/* Top left corner */
+.hero-content::before {
+    top: 0;
+    left: 0;
+    color: #00ff88;
+    box-shadow: 
+        0 0 10px currentColor,
+        0 0 20px currentColor,
+        0 0 30px currentColor,
+        0 0 40px currentColor,
+        0 0 70px currentColor;
+    animation-delay: -0.5s;
+}
+
+/* Top right corner */
+.hero-content::after {
+    top: 0;
+    right: 0;
+    color: #ff0088;
+    box-shadow: 
+        0 0 10px currentColor,
+        0 0 20px currentColor,
+        0 0 30px currentColor,
+        0 0 40px currentColor,
+        0 0 70px currentColor;
+}
+
+/* Bottom left corner */
+.hero-content .diagonal-line:nth-child(1) {
+    bottom: 0;
+    left: 0;
+    color: #ff0088;
+    box-shadow: 
+        0 0 10px currentColor,
+        0 0 20px currentColor,
+        0 0 30px currentColor,
+        0 0 40px currentColor,
+        0 0 70px currentColor;
+    animation-delay: -1s;
+}
+
+/* Bottom right corner */
+.hero-content .diagonal-line:nth-child(2) {
+    bottom: 0;
+    right: 0;
+    color: #00ff88;
+    box-shadow: 
+        0 0 10px currentColor,
+        0 0 20px currentColor,
+        0 0 30px currentColor,
+        0 0 40px currentColor,
+        0 0 70px currentColor;
+    animation-delay: -0.75s;
+}
+
+/* Add vertical parts */
+.hero-content::before,
+.hero-content::after,
+.hero-content .diagonal-line:nth-child(1),
+.hero-content .diagonal-line:nth-child(2) {
+    &::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 150px;
+        background: currentColor;
+        filter: blur(2px);
+        box-shadow: 
+            0 0 10px currentColor,
+            0 0 20px currentColor,
+            0 0 30px currentColor,
+            0 0 40px currentColor,
+            0 0 70px currentColor;
+    }
+}
+
+/* Position vertical parts */
+.hero-content::before::after {
+    top: 0;
+    left: 0;
+}
+
+.hero-content::after::after {
+    top: 0;
+    right: 0;
+}
+
+.hero-content .diagonal-line:nth-child(1)::after {
+    bottom: 0;
+    left: 0;
+}
+
+.hero-content .diagonal-line:nth-child(2)::after {
+    bottom: 0;
+    right: 0;
+}
+
+/* Strobing animation */
+@keyframes cornerStrobe {
+    0%, 100% {
+        opacity: 0.2;
+        filter: blur(2px);
+    }
+    50% {
+        opacity: 1;
+        filter: blur(3px);
+    }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .hero-content::before,
+    .hero-content::after,
+    .hero-content .diagonal-line:nth-child(1),
+    .hero-content .diagonal-line:nth-child(2) {
+        width: 100px;
+        
+        &::after {
+            height: 100px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content::before,
+    .hero-content::after,
+    .hero-content .diagonal-line:nth-child(1),
+    .hero-content .diagonal-line:nth-child(2) {
+        width: 60px;
+        
+        &::after {
+            height: 60px;
+        }
+    }
+}
+
+/* Ensure content stays above the effects */
+.hero-text, 
+.profile-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    /* Hero Section Mobile Adjustments */
+    .hero {
+        min-height: 100vh;
+        padding: 0; /* Remove all padding */
+        margin-top: -60px; /* Move entire section up */
+    }
+
+    .navbar {
+        background: transparent; /* Make navbar transparent */
+    }
+
+    .hero-content {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1.5rem;
+        margin-top: 60px; /* Offset for navbar */
+        width: 90%;
+    }
+
+    .profile-container {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+        padding-top: 1rem; /* Reduced padding */
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+    }
+
+    .cta-button, 
+    .secondary-button {
+        width: 100%;
+        max-width: 250px;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .hero-social {
+        margin-top: 0.8rem;
+    }
+}
+
+    /* Extra Small Devices */
+    @media screen and (max-width: 480px) {
+        .hero {
+            margin-top: -50px; /* Move up slightly more on smaller screens */
+        }
+
+        .hero-content {
+            padding: 0.8rem;
+            margin-top: 50px;
+            width: 95%;
+        }
+
+        .profile-container {
+            padding-top: 0.5rem;
+        }
+
+        .profile-image {
+            width: 320px;
+            height: 320px;
+        }
+    }
+
+    /* Very Small Devices */
+    @media screen and (max-width: 320px) {
+        .hero {
+            margin-top: -40px;
+        }
+
+        .hero-content {
+            padding: 0.5rem;
+            margin-top: 40px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+        }
+    }
+
+    /* Fix for very tall mobile screens */
+    @media screen and (max-height: 700px) and (max-width: 768px) {
+        .hero {
+            min-height: auto;
+        }
+
+        .hero-content {
+            gap: 1rem;
+        }
+
+        .profile-container {
+            padding-top: 0.5rem;
+        }
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 0;
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .hero {
+        height: 100vh;
+        padding: 0;
+        margin-top: -120px; /* Increased negative margin to move up more */
+        display: flex;
+        align-items: flex-start;
+        padding-top: 60px; /* Reduced padding */
+    }
+
+    .hero-content {
+        margin-top: -40px; /* Negative margin to pull content up */
+        padding-top: 0;
+        transform: translateY(-20px); /* Additional upward shift */
+    }
+
+    .profile-container {
+        transform: scale(0.85); /* Slightly smaller scale */
+        margin-bottom: -20px; /* Pull next content up */
+    }
+
+    /* Make navbar more transparent */
+    .navbar {
+        background: rgba(17, 17, 17, 0.8);
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 480px) {
+    .hero {
+        margin-top: -100px; /* Even more negative margin */
+        padding-top: 50px;
+    }
+
+    .hero-content {
+        margin-top: -50px;
+        transform: translateY(-30px);
+    }
+
+    .profile-container {
+        transform: scale(0.8);
+        margin-bottom: -30px;
+    }
+}
+
+/* Very small devices */
+@media screen and (max-width: 320px) {
+    .hero {
+        margin-top: -180px;
+        padding-top: 40px;
+    }
+
+    .hero-content {
+        margin-top: -60px;
+        transform: translateY(-40px);
+    }
+
+    .profile-container {
+        transform: scale(0.75);
+        margin-bottom: -40px;
+    }
 }
