@@ -4177,3 +4177,61 @@ html {
     content: "This site is designed and developed by Budaque Multi Media Creations.";
     display: inline;
 }
+
+/* Team Section Mobile Adjustments */
+@media screen and (max-width: 768px) {
+    .team {
+        padding: 3rem 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .team-content {
+        padding: 2rem 1.5rem;
+        width: 92%;
+        margin: 0 auto;
+    }
+
+    .team h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .team-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .member-image {
+        height: 250px;
+    }
+
+    .member-info {
+        padding: 1.2rem;
+    }
+}
+
+/* Even smaller screens */
+@media screen and (max-width: 480px) {
+    .team {
+        padding: 2rem 1rem;
+        margin-top: 1.5rem;
+    }
+
+    .team-content {
+        padding: 1.5rem 1rem;
+        width: 95%;
+    }
+
+    .member-image {
+        height: 200px;
+    }
+
+    .member-info {
+        padding: 1rem;
+    }
+}
