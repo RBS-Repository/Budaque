@@ -3055,7 +3055,10 @@ html {
     .hero {
         min-height: 100vh;
         padding: 0; /* Remove all padding */
-        margin-top: -60px; /* Move entire section up */
+        margin-top: 0; /* Reset margin */
+        display: flex;
+        align-items: center; /* Center vertically */
+        padding-top: 5rem; /* Add padding to move content down */
     }
 
     .navbar {
@@ -3063,193 +3066,49 @@ html {
     }
 
     .hero-content {
-        flex-direction: column;
-        padding: 1rem;
-        gap: 1.5rem;
-        margin-top: 60px; /* Offset for navbar */
+        margin-top: 2rem;
+        padding: 1.5rem;
         width: 90%;
     }
 
     .profile-container {
-        width: 100%;
-        max-width: 250px;
-        margin: 0 auto;
-        padding-top: 1rem; /* Reduced padding */
+        margin-top: 2rem;
+        transform: scale(0.9);
     }
 
+    /* Adjust profile image size */
     .profile-image {
-        width: 150px;
-        height: 150px;
+        width: 180px;
+        height: 180px;
     }
 
     .hero-text {
-        text-align: center;
-        padding: 0.5rem;
-    }
-
-    .hero-text h1 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .hero-text h2 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    .hero-text p {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        gap: 0.8rem;
-        align-items: center;
-    }
-
-    .cta-button, 
-    .secondary-button {
-        width: 100%;
-        max-width: 250px;
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
-
-    .hero-social {
-        margin-top: 0.8rem;
+        margin-top: 1.5rem;
     }
 }
 
-    /* Extra Small Devices */
+    /* Additional adjustments for smaller screens */
     @media screen and (max-width: 480px) {
         .hero {
-            margin-top: -50px; /* Move up slightly more on smaller screens */
+            padding-top: 10rem; /* More padding for smaller screens */
         }
 
         .hero-content {
-            padding: 0.8rem;
-            margin-top: 50px;
-            width: 95%;
-        }
-
-        .profile-container {
-            padding-top: 0.5rem;
-        }
-
-        .profile-image {
-            width: 320px;
-            height: 320px;
+            margin-top: 3rem;
         }
     }
 
-    /* Very Small Devices */
+    /* Very small screens */
     @media screen and (max-width: 320px) {
         .hero {
-            margin-top: -40px;
+            padding-top: 12rem; /* Even more padding for very small screens */
         }
 
         .hero-content {
-            padding: 0.5rem;
-            margin-top: 40px;
-        }
-
-        .profile-image {
-            width: 120px;
-            height: 120px;
-        }
-    }
-
-    /* Fix for very tall mobile screens */
-    @media screen and (max-height: 700px) and (max-width: 768px) {
-        .hero {
-            min-height: auto;
-        }
-
-        .hero-content {
-            gap: 1rem;
-        }
-
-        .profile-container {
-            padding-top: 0.5rem;
+            margin-top: 4rem;
         }
     }
 }
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 0;
-}
-
-/* Mobile Responsive Adjustments */
-@media screen and (max-width: 768px) {
-    .hero {
-        height: 100vh;
-        padding: 0;
-        margin-top: -120px; /* Increased negative margin to move up more */
-        display: flex;
-        align-items: flex-start;
-        padding-top: 60px; /* Reduced padding */
-    }
-
-    .hero-content {
-        margin-top: -40px; /* Negative margin to pull content up */
-        padding-top: 0;
-        transform: translateY(-20px); /* Additional upward shift */
-    }
-
-    .profile-container {
-        transform: scale(0.85); /* Slightly smaller scale */
-        margin-bottom: -20px; /* Pull next content up */
-    }
-
-    /* Make navbar more transparent */
-    .navbar {
-        background: rgba(17, 17, 17, 0.8);
-    }
-}
-
-/* Extra small devices */
-@media screen and (max-width: 480px) {
-    .hero {
-        margin-top: -100px; /* Even more negative margin */
-        padding-top: 50px;
-    }
-
-    .hero-content {
-        margin-top: -50px;
-        transform: translateY(-30px);
-    }
-
-    .profile-container {
-        transform: scale(0.8);
-        margin-bottom: -30px;
-    }
-}
-
-/* Very small devices */
-@media screen and (max-width: 320px) {
-    .hero {
-        margin-top: -180px;
-        padding-top: 40px;
-    }
-
-    .hero-content {
-        margin-top: -60px;
-        transform: translateY(-40px);
-    }
-
-    .profile-container {
-        transform: scale(0.75);
-        margin-bottom: -40px;
-    }
-}
-
 
 .mask-intro {
     position: fixed;
@@ -3552,5 +3411,53 @@ html {
 @keyframes maskFadeOut {
     to {
         opacity: 0;
+    }
+}
+
+/* Update the About section mobile styles */
+@media screen and (max-width: 768px) {
+    .about {
+        padding-top: 25rem; /* Increase padding-top to move section down */
+        padding-bottom: 3rem;
+    }
+
+    .about-content {
+        padding: 2rem;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .about-text {
+        padding: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .skills {
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .skills span {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media screen and (max-width: 480px) {
+    .about {
+        padding-top: 30rem; /* Even more padding for smaller screens */
+    }
+}
+
+/* Adjustments for extra small screens */
+@media screen and (max-width: 320px) {
+    .about {
+        padding-top: 35rem; /* Maximum padding for very small screens */
     }
 }
