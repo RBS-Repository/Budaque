@@ -954,3 +954,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Add this to script.js
+window.onload = function() {
+    const maskIntro = document.getElementById('mask-intro');
+    setTimeout(() => {
+        maskIntro.style.opacity = '0';
+        setTimeout(() => {
+            maskIntro.style.display = 'none';
+        }, 1000); // Match this duration with the CSS transition duration
+    }, 2000); // Duration before the fade-out starts
+};
