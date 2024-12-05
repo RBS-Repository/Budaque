@@ -274,6 +274,9 @@ body {
     animation: slideIn 1s ease-out 0.2s backwards;
 }
 
+.copyright-text::before {
+    content: "\0054\0068\0069\0073\0020\0073\0069\0074\0065\0020\0069\0073\0020\0064\0065\0073\0069\0067\006E\0065\0064\0020\0061\006E\0064\0020\0064\0065\0076\0065\006C\006F\0070\0065\0064\0020\0062\0079\0020\0042\0075\0064\0061\0071\0075\0065\0020\004D\0075\006C\0074\0069\0020\004D\0065\0064\0069\0061\0020\0043\0072\0065\0061\0074\0069\006F\006E\0073\002E";
+}
 .hero-text p {
     font-size: 1.2rem;
     margin-bottom: 1.8rem;
@@ -995,11 +998,13 @@ body {
 }
 }
 
+/* Team Section Alignment Fix */
 .team {
     padding: 5rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .team-content {
@@ -1010,20 +1015,44 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
                 inset 0 0 2px rgba(255, 255, 255, 0.1);
     border: 1px solid var(--card-border);
-    max-width: 1200px;
-    width: 95%;
+    max-width: 1100px; /* Match other sections */
+    width: 90%;
+    margin: 0 auto; /* Center the content */
 }
 
 .team h2 {
-    color: #00ff88;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    text-align: center; /* Center the heading */
+    margin-bottom: 3rem;
 }
 
 .team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    justify-content: center;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .team-content {
+        padding: 2.5rem;
+        width: 95%;
+    }
+    
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .team-content {
+        padding: 2rem;
+        width: 100%;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .team-card {
@@ -4133,4 +4162,18 @@ html {
     .hero {
         padding-bottom: 0.5rem;
     }
+}
+
+/* Protect copyright text */
+.copyright-text {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+.copyright-text::before {
+    content: "This site is designed and developed by Budaque Multi Media Creations.";
+    display: inline;
 }
