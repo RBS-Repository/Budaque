@@ -999,6 +999,8 @@ body {
         text-align: center;
     }
 }
+}
+}
 
 .team {
     padding: 5rem 2rem;
@@ -3293,9 +3295,9 @@ html {
 
 .intro-container span {
     color: #00ff88;
-    font-family: 'Montserrat', 'Arial Black', sans-serif; /* Updated font */
+    font-family: 'Montserrat', 'Arial Black', sans-serif;
     font-size: 4vw;
-    font-weight: 900; /* Bolder weight */
+    font-weight: 900;
     opacity: 0;
     display: inline-block;
     text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
@@ -3303,7 +3305,34 @@ html {
                glow 2s ease-in-out infinite;
     position: relative;
     z-index: 1;
-    letter-spacing: -0.02em; /* Tighter letter spacing */
+    letter-spacing: -0.02em;
+}
+
+/* Add pink accent to the second M */
+.intro-container span:nth-child(3) {
+    color: #ff0088; /* Pink color */
+    text-shadow: 
+        0 0 10px rgba(255, 0, 136, 0.5),
+        0 0 20px rgba(255, 0, 136, 0.3);
+    animation: fadeIn 0.5s ease forwards,
+               pinkGlow 2s ease-in-out infinite;
+}
+
+/* Add pink glow animation */
+@keyframes pinkGlow {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px rgba(255, 0, 136, 0.5),
+            0 0 20px rgba(255, 0, 136, 0.3);
+        filter: brightness(1);
+    }
+    50% {
+        text-shadow: 
+            0 0 15px rgba(255, 0, 136, 0.6),
+            0 0 25px rgba(255, 0, 136, 0.4),
+            0 0 35px rgba(255, 0, 136, 0.3);
+        filter: brightness(1.2);
+    }
 }
 
 /* Add responsive font size for mobile */
@@ -3492,9 +3521,9 @@ html {
         right: 20px;
         width: 200px;
         max-height: 400px;
-        background: rgba(17, 17, 17, 0.55); /* More transparent background */
-        backdrop-filter: blur(30px) saturate(180%); /* Increased blur and saturation */
-        -webkit-backdrop-filter: blur(30px) saturate(180%);
+        background: rgba(17, 17, 17, 0.35); /* More transparent background */
+        backdrop-filter: blur(40px) saturate(200%); /* Increased blur and saturation */
+        -webkit-backdrop-filter: blur(40px) saturate(200%);
         border-radius: 12px;
         padding: 1rem;
         flex-direction: column;
@@ -3516,9 +3545,9 @@ html {
         opacity: 1;
         transform: scale(1);
         animation: dropdownAppear 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: rgba(17, 17, 17, 0.65); /* Slightly more opaque when active */
-        backdrop-filter: blur(35px) saturate(200%); /* Even more blur when active */
-        -webkit-backdrop-filter: blur(35px) saturate(200%);
+        background: rgba(17, 17, 17, 0.45); /* Slightly more opaque when active */
+        backdrop-filter: blur(45px) saturate(200%); /* Even more blur when active */
+        -webkit-backdrop-filter: blur(45px) saturate(200%);
         box-shadow: 
             0 8px 32px rgba(0, 0, 0, 0.3),
             inset 0 0 0 1px rgba(255, 255, 255, 0.12);
@@ -3706,5 +3735,128 @@ html {
     .cta-button, 
     .secondary-button {
         width: 100%;
+    }
+}
+
+/* BMMC Intro Styling */
+.intro-container span {
+    color: #00ff88;
+    font-family: 'Montserrat', 'Arial Black', sans-serif;
+    font-size: 4vw;
+    font-weight: 900;
+    opacity: 0;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.02em;
+}
+
+/* B styling - Gradient effect */
+.intro-container span:nth-child(1) {
+    background: linear-gradient(45deg, #00ff88, #ff0088);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeIn 0.5s ease forwards,
+               gradientGlow 2s ease-in-out infinite;
+}
+
+/* First M styling */
+.intro-container span:nth-child(2) {
+    color: #00ff88;
+    animation: fadeIn 0.5s ease forwards,
+               greenGlow 2s ease-in-out infinite;
+    animation-delay: 0.2s;
+}
+
+/* Second M styling - Pink */
+.intro-container span:nth-child(3) {
+    color: #ff0088;
+    animation: fadeIn 0.5s ease forwards,
+               pinkGlow 2s ease-in-out infinite;
+    animation-delay: 0.4s;
+}
+
+/* C styling - Gradient effect */
+.intro-container span:nth-child(4) {
+    background: linear-gradient(45deg, #ff0088, #00ff88);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeIn 0.5s ease forwards,
+               gradientGlow 2s ease-in-out infinite;
+    animation-delay: 0.6s;
+}
+
+/* Gradient glow animation */
+@keyframes gradientGlow {
+    0%, 100% {
+        filter: brightness(1);
+        text-shadow: 
+            0 0 10px rgba(0, 255, 136, 0.5),
+            0 0 20px rgba(255, 0, 136, 0.3);
+    }
+    50% {
+        filter: brightness(1.2);
+        text-shadow: 
+            0 0 15px rgba(0, 255, 136, 0.6),
+            0 0 25px rgba(255, 0, 136, 0.4),
+            0 0 35px rgba(0, 255, 136, 0.3);
+    }
+}
+
+/* Green glow animation */
+@keyframes greenGlow {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px rgba(0, 255, 136, 0.5),
+            0 0 20px rgba(0, 255, 136, 0.3);
+        filter: brightness(1);
+    }
+    50% {
+        text-shadow: 
+            0 0 15px rgba(0, 255, 136, 0.6),
+            0 0 25px rgba(0, 255, 136, 0.4),
+            0 0 35px rgba(0, 255, 136, 0.3);
+        filter: brightness(1.2);
+    }
+}
+
+/* Pink glow animation */
+@keyframes pinkGlow {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px rgba(255, 0, 136, 0.5),
+            0 0 20px rgba(255, 0, 136, 0.3);
+        filter: brightness(1);
+    }
+    50% {
+        text-shadow: 
+            0 0 15px rgba(255, 0, 136, 0.6),
+            0 0 25px rgba(255, 0, 136, 0.4),
+            0 0 35px rgba(255, 0, 136, 0.3);
+        filter: brightness(1.2);
+    }
+}
+
+/* Mobile adjustments for intro letters */
+@media screen and (max-width: 768px) {
+    .intro-container span {
+        font-size: 12vw; /* Increased from 8vw to 12vw */
+    }
+
+    .intro-container {
+        gap: 3vw; /* Increased gap between letters */
+    }
+}
+
+/* Even larger for very small screens */
+@media screen and (max-width: 480px) {
+    .intro-container span {
+        font-size: 14vw; /* Even larger for smaller screens */
+    }
+
+    .intro-container {
+        gap: 4vw; /* Larger gap for better spacing */
     }
 }
