@@ -964,3 +964,5 @@ window.onload = function() {
         }, 1000); // Match this duration with the CSS transition duration
     }, 2000); // Duration before the fade-out starts
 };
+
+

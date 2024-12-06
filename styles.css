@@ -40,6 +40,10 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body {
@@ -657,6 +661,10 @@ body {
     color: #ffffff;
     font-size: 1rem;
     transition: all 0.3s ease;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
 
 .form-group select {
@@ -2586,6 +2594,10 @@ html {
     color: #ffffff;
     font-size: 1rem;
     transition: all 0.3s ease;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
 
 .form-control-input:focus,
