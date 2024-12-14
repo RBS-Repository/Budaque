@@ -39,6 +39,11 @@ window.addEventListener('scroll', () => {
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
     new Background();
+    
+    // Initialize chatbot
+    if (typeof initializeChatbot === 'function') {
+        initializeChatbot();
+    }
 });
 
 class Background {
