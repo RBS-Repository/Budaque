@@ -17,6 +17,7 @@ setTimeout(() => {
             z-index: 9999;
             animation: fadeInOut 4s infinite;
             white-space: nowrap;
+            transition: opacity 0.3s ease-out;
         }
 
         @keyframes fadeInOut {
@@ -36,6 +37,12 @@ setTimeout(() => {
 
         .shake {
             animation: shake 0.5s ease-in-out;
+        }
+
+        .chatbot-container.active ~ .ask-me-tooltip {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
         }
     `;
     document.head.appendChild(styleSheet);
@@ -85,9 +92,10 @@ setTimeout(() => {
         setTimeout(() => {
             const shakeInterval = setInterval(shakeButton, 5000);
             
-            // Hide tooltip and stop shaking when chat is opened
+            // Hide tooltip and stop animations when chat is opened
             chatButton.addEventListener('click', () => {
-                tooltip.style.display = 'none';
+                tooltip.style.opacity = '0';
+                tooltip.style.visibility = 'hidden';
                 clearInterval(messageInterval);
                 clearInterval(shakeInterval);
             });

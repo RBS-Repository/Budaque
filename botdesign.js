@@ -13,19 +13,26 @@ const botConfig = {
         },
         chatWindow: {
             welcomeMessage: "👋 Hi! I'm Gi-bot Budaque Multi Media Creations Assistant. How can I help you?",
-            backgroundColor: "rgba(17, 17, 17, 0.95)",
+            backgroundColor: "rgba(17, 17, 17, 0.9)",
             height: 500,
             width: 350,
             fontSize: 16,
-            poweredByTextColor: "#ffffff",
+            poweredByTextColor: "transparent",
+            poweredByText: "",
+            style: {
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
+            },
             botMessage: {
-                backgroundColor: "rgba(255, 255, 255, 0.05)",
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
                 textColor: "#ffffff",
                 showAvatar: true,
                 avatarSrc: "https://cdn-icons-png.flaticon.com/512/4712/4712027.png",
             },
             userMessage: {
-                backgroundColor: "rgba(0, 255, 136, 0.1)",
+                backgroundColor: "rgba(0, 255, 136, 0.15)",
                 textColor: "#00ff88",
                 showAvatar: true,
                 avatarSrc: "https://raw.githubusercontent.com/zahidkhawaja/langchain-chat-nextjs/main/public/usericon.png",
@@ -43,10 +50,12 @@ const botConfig = {
                 bottom: 0;
                 left: 0;
                 right: 0;
-                background: white;
+                background: rgba(0, 0, 0, 0.3);
                 padding: 10px 15px;
-                border-top: 1px solid #DBDBDB;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
                 border-radius: 0 0 12px 12px;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
                 z-index: 1000;
             `,
             chatContainer: `
@@ -55,6 +64,11 @@ const botConfig = {
                 height: calc(100% - 80px);
                 position: relative;
                 overflow: hidden;
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                background: rgba(17, 17, 17, 0.75);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 15px;
             `,
             messagesContainer: `
                 flex: 1;
@@ -62,6 +76,7 @@ const botConfig = {
                 padding: 20px;
                 padding-bottom: 80px;
                 scroll-behavior: smooth;
+                background: transparent;
             `,
             buttonTooltip: `
                 position: absolute;
@@ -85,6 +100,9 @@ const botConfig = {
                 0% { opacity: 0; transform: translateX(10px); }
                 50% { opacity: 1; transform: translateX(0); }
                 100% { opacity: 0; transform: translateX(10px); }
+            `,
+            poweredByContainer: `
+                display: none !important;
             `
         }
     }
