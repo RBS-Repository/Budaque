@@ -3175,39 +3175,59 @@ html {
     /* Hero Section Mobile Adjustments */
     .hero {
         min-height: 100vh;
-        padding: 0;
-        margin-top: 0;
+        padding: 4.5rem 0.5rem 2rem; /* Reduced top padding */
         display: flex;
         align-items: center;
-        padding-top: 4rem; /* Reduced from 7rem to 4rem */
+        justify-content: center;
     }
 
     .hero-content {
-        margin-top: 2rem;
-        padding: 1.5rem;
-        width: 90%;
+        margin-top: 0; /* Remove top margin */
+        transform: translateY(-2rem); /* Move content up slightly */
+    }
+
+    /* About Section Mobile Adjustments */
+    .about {
+        padding-top: 2rem; /* Reduced padding */
+        margin-top: -2rem; /* Pull section up */
+    }
+
+    /* Remove any conflicting margin/padding */
+    .hero + .about {
+        margin-top: 0;
+    }
+
+    /* Ensure smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 60px; /* Account for fixed header */
+    }
+
+    /* Fix section transitions */
+    section {
+        transition: transform 0.3s ease-out;
     }
 }
 
     /* Additional adjustments for smaller screens */
     @media screen and (max-width: 480px) {
         .hero {
-            padding-top: 6rem; /* Reduced from 10rem to 6rem */
+            padding-top: 4rem; /* Further reduced for smaller screens */
         }
 
-        .hero-content {
-            margin-top: 2rem; /* Reduced from 3rem to 2rem */
+        .about {
+            padding-top: 1.5rem;
         }
     }
 
     /* Very small screens */
     @media screen and (max-width: 320px) {
         .hero {
-            padding-top: 8rem; /* Reduced from 12rem to 8rem */
+            padding-top: 3.5rem;
         }
 
-        .hero-content {
-            margin-top: 2rem; /* Reduced from 4rem to 2rem */
+        .about {
+            padding-top: 1rem;
         }
     }
 }
@@ -4487,4 +4507,329 @@ html {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s ease-in-out;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px; /* Moved down */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    display: none; /* Hidden by default */
+    padding: 0.8rem 1.5rem;
+    width: auto;
+}
+
+.scroll-indicator p {
+    font-size: 12px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #00ff88, #ff0088);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+.scroll-arrow {
+    font-size: 20px;
+    color: #00ff88;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5),
+                 0 0 20px rgba(0, 255, 136, 0.3);
+    animation: bounce 2s infinite;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Only show on desktop with refined positioning */
+@media screen and (min-width: 1024px) {
+    .scroll-indicator {
+        display: block;
+        animation: fadeIn 0.5s ease forwards;
+    }
+}
+
+/* Adjust position for larger screens */
+@media screen and (min-width: 1440px) {
+    .scroll-indicator {
+        bottom: 60px; /* Adjusted for larger screens */
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+        text-shadow: 0 0 10px rgba(0, 255, 136, 0.5),
+                     0 0 20px rgba(0, 255, 136, 0.3);
+    }
+    40% {
+        transform: translateY(-10px);
+        text-shadow: 0 0 15px rgba(0, 255, 136, 0.6),
+                     0 0 25px rgba(0, 255, 136, 0.4),
+                     0 0 35px rgba(0, 255, 136, 0.3);
+    }
+    60% {
+        transform: translateY(-5px);
+        text-shadow: 0 0 12px rgba(0, 255, 136, 0.55),
+                     0 0 22px rgba(0, 255, 136, 0.35);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Mobile Hero Section Redesign */
+@media screen and (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+        padding: 6rem 1rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        padding: 2rem;
+        gap: 2rem;
+        width: 92%;
+        background: rgba(17, 17, 17, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 0 10px rgba(0, 255, 136, 0.1),
+            0 0 20px rgba(255, 0, 136, 0.1);
+    }
+
+    .profile-container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .profile-image {
+        width: 180px;
+        height: 180px;
+        border: 3px solid transparent;
+        background: linear-gradient(45deg, #00ff88, #ff0088) border-box;
+        -webkit-mask: 
+            linear-gradient(#fff 0 0) padding-box, 
+            linear-gradient(#fff 0 0);
+        mask: 
+            linear-gradient(#fff 0 0) padding-box, 
+            linear-gradient(#fff 0 0);
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-social {
+        margin-top: 1.5rem;
+        padding: 0.8rem 1.5rem;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .hero-social a {
+        color: #00ff88;
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+        text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+    }
+
+    .hero-social a:hover {
+        color: #ff0088;
+        transform: translateY(-3px);
+        text-shadow: 0 0 15px rgba(255, 0, 136, 0.4);
+    }
+
+    .hero-text {
+        text-align: center;
+        padding: 1.5rem;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(45deg, #ffffff, #00ff88);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+    }
+
+    .hero-text h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: #00ff88;
+        text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .cta-button, 
+    .secondary-button {
+        width: 100%;
+        padding: 0.9rem;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .cta-button {
+        background: linear-gradient(45deg, #00ff88, #00cc6f);
+        color: #111111;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+    }
+
+    .secondary-button {
+        background: transparent;
+        color: #ffffff;
+        border: 2px solid #ff0088;
+        box-shadow: 0 4px 15px rgba(255, 0, 136, 0.2);
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+    }
+
+    .secondary-button:hover {
+        background: rgba(255, 0, 136, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 0, 136, 0.3);
+    }
+
+    /* Add glowing corners to hero-content */
+    .hero-content::before,
+    .hero-content::after {
+        content: '';
+        position: absolute;
+        width: 100px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #00ff88, transparent);
+        animation: glowingBorder 2s linear infinite;
+    }
+
+    .hero-content::before {
+        top: 0;
+        left: 0;
+        transform-origin: left;
+    }
+
+    .hero-content::after {
+        bottom: 0;
+        right: 0;
+        transform-origin: right;
+    }
+}
+
+/* Extra small screens adjustments */
+@media screen and (max-width: 380px) {
+    .hero-content {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.4rem;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+
+    .hero-social a {
+        font-size: 1.5rem;
+    }
+}
+
+@keyframes glowingBorder {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Update the BMMC text color */
+    .hero-text h1 .highlight {
+        background: none;
+        -webkit-text-fill-color: #ff0088;
+        color: #ff0088;
+        text-shadow: 0 0 15px rgba(255, 0, 136, 0.4);
+    }
+
+    /* Make mobile dropdown menu more solid */
+    .nav-links {
+        background: rgba(17, 17, 17, 0.95); /* More solid background */
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 
+            0 4px 15px rgba(0, 0, 0, 0.3),
+            0 8px 32px rgba(17, 17, 17, 0.5);
+    }
+
+    .nav-links.active {
+        background: rgba(17, 17, 17, 0.98); /* Even more solid when active */
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+    }
+
+    .nav-links a {
+        background: rgba(0, 0, 0, 0.2); /* Darker background for menu items */
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-links a:hover {
+        background: rgba(0, 255, 136, 0.1);
+        border-color: rgba(0, 255, 136, 0.2);
+    }
 }

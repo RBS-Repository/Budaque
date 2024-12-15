@@ -7,8 +7,8 @@ setTimeout(() => {
             position: fixed;
             right: ${isMobile() ? '120px' : '120px'};
             bottom: ${isMobile() ? '80px' : '90px'};
-            background-color: #00ff88;
-            color: #111111;
+            background-color: #b3005f;
+            color: #dedede;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: ${isMobile() ? '12px' : '17px'};
