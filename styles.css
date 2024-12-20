@@ -1078,6 +1078,7 @@ body {
     }
 }
 }
+}
 
 /* Team Section Alignment Fix */
 .team {
@@ -2337,7 +2338,16 @@ textarea {
     line-height: 1.6;
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.9);
-    padding-top: 3.5rem; /* Added back to move text down */
+    padding-top: 3rem; /* Desktop padding */
+}
+
+@media screen and (max-width: 768px) {
+    .testimonial-quote p {
+        padding-top: 0; /* Remove padding for mobile */
+        height: 250px;
+        font-size: 1rem;
+        line-height: 1.8;
+    }
 }
 
 .testimonial-author {
@@ -2380,30 +2390,39 @@ textarea {
 
 @media screen and (max-width: 768px) {
     .testimonial-card {
-        height: 400px; /* Increased from 300px */
+        height: 300px;
         flex: 0 0 100%;
         min-width: 100%;
-        padding: 2.5rem; /* Increased padding */
+        padding: 2rem 2.5rem 1rem 2.5rem;
+        position: relative;
     }
     
     .testimonial-quote p {
-        height: 250px; /* Increased from 150px */
-        font-size: 1rem; /* Slightly larger font */
-        line-height: 1.8; /* Increased line height */
+        height: 180px;
+        font-size: 1rem !important; /* Increased font size and added !important */
+        line-height: 1.7;
+        margin-bottom: 0;
     }
     
     .testimonial-author {
-        height: 100px; /* Increased from 80px */
-        padding-top: 1.5rem; /* Increased padding */
+        height: 50px;
+        padding-top: 0.5rem;
+        margin-top: 0.5rem;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem 2.5rem;
+        background: rgba(0, 0, 0, 0.2);
     }
     
     .testimonial-author img {
-        width: 60px; /* Increased from 50px */
-        height: 60px; /* Increased from 50px */
+        width: 45px;
+        height: 45px;
     }
     
     .author-info h4 {
-        font-size: 1.2rem; /* Increased from 1rem */
+        font-size: 1.3rem;
     }
 }
 
@@ -2513,7 +2532,8 @@ textarea {
     }
 
     .testimonial-quote p {
-        padding-top: 4rem; /* More padding for mobile */
+        /* Remove the padding-top override for mobile */
+        /* padding-top: 1rem !important; */ /* Removing this line */
     }
 }
 
@@ -3284,13 +3304,60 @@ html {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #000;
+    background: #111111;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    overflow: hidden;
-    perspective: 2000px;
+    overflow: hidden; /* Prevent any potential scrolling */
+}
+
+.intro-container {
+    position: fixed; /* Changed from absolute */
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    will-change: transform, opacity; /* Optimize performance */
+}
+
+.intro-container span {
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00ff88;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: introAnim 0.5s ease forwards;
+    will-change: transform, opacity; /* Optimize performance */
+    backface-visibility: hidden; /* Reduce mobile flickering */
+    -webkit-font-smoothing: antialiased; /* Smoother text rendering */
+}
+
+@keyframes introAnim {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mobile optimization */
+@media screen and (max-width: 768px) {
+    .intro-container {
+        transform: translate(-50%, -50%) translateZ(0); /* Force GPU acceleration */
+    }
+    
+    .intro-container span {
+        font-size: 2.5rem; /* Slightly smaller for mobile */
+    }
 }
 
 .netflix-container {
@@ -3449,7 +3516,7 @@ html {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #000;
+    background: #111111;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -3457,23 +3524,34 @@ html {
 }
 
 .intro-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
-    gap: 2vw;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .intro-container span {
-    color: #00ff88;
-    font-family: 'Montserrat', 'Arial Black', sans-serif;
-    font-size: 4vw;
-    font-weight: 900;
-    opacity: 0;
     display: inline-block;
-    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-    animation: fadeIn 0.5s ease forwards,
-               glow 2s ease-in-out infinite;
-    position: relative;
-    z-index: 1;
-    letter-spacing: -0.02em;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #00ff88;
+    opacity: 0;
+    animation: introAnim 0.5s ease forwards;
+}
+
+@keyframes introAnim {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Add pink accent to the second M */
