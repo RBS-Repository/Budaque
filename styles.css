@@ -567,6 +567,13 @@ body {
     }
 }
 
+/* Add this to your existing media query for mobile devices */
+@media screen and (max-width: 768px) {
+    .skills {
+        display: none; /* Hides the skills tags on mobile */
+    }
+}
+
 /* Projects Section */
 .projects {
     padding: 5rem 2rem;
@@ -1126,6 +1133,11 @@ body {
     
     .team-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+    .team h2 {
+        text-align: center;
     }
 }
 
@@ -2316,22 +2328,16 @@ textarea {
 
 .testimonial-quote {
     flex: 1;
-    margin-bottom: 1.5rem; /* Reduced from 2rem */
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    margin-bottom: 1.5rem;
 }
 
 .testimonial-quote p {
-    height: 200px; /* Reduced from 300px */
-    margin-bottom: 1rem; /* Reduced from 1.5rem */
-    line-height: 1.6; /* Reduced from 1.8 */
-    font-size: 1rem; /* Reduced from 1.2rem */
+    height: 200px;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.9);
-    overflow-y: auto;
+    padding-top: 3.5rem; /* Added back to move text down */
 }
 
 .testimonial-author {
@@ -2374,18 +2380,30 @@ textarea {
 
 @media screen and (max-width: 768px) {
     .testimonial-card {
-        height: 300px; /* Reduced from 400px */
+        height: 400px; /* Increased from 300px */
         flex: 0 0 100%;
         min-width: 100%;
+        padding: 2.5rem; /* Increased padding */
     }
     
     .testimonial-quote p {
-        height: 150px; /* Reduced from 200px */
-        font-size: 0.9rem;
+        height: 250px; /* Increased from 150px */
+        font-size: 1rem; /* Slightly larger font */
+        line-height: 1.8; /* Increased line height */
+    }
+    
+    .testimonial-author {
+        height: 100px; /* Increased from 80px */
+        padding-top: 1.5rem; /* Increased padding */
+    }
+    
+    .testimonial-author img {
+        width: 60px; /* Increased from 50px */
+        height: 60px; /* Increased from 50px */
     }
     
     .author-info h4 {
-        font-size: 1rem;
+        font-size: 1.2rem; /* Increased from 1rem */
     }
 }
 
@@ -2492,6 +2510,10 @@ textarea {
     .prev-btn,
     .next-btn {
         font-size: 1.2rem;
+    }
+
+    .testimonial-quote p {
+        padding-top: 4rem; /* More padding for mobile */
     }
 }
 
