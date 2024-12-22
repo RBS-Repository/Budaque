@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BMMC</title>
+    <link rel="icon" type="image/x-icon" href="Systems and technology programming company logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="Systems and technology programming company logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Systems and technology programming company logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Systems and technology programming company logo.png">
+    <link rel="manifest" href="Systems and technology programming company logo.png">
+    <link rel="mask-icon" href="Systems and technology programming company logo.png" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" />
+    <!-- Google Analytics tag (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M221H47QJZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-M221H47QJZ');
+    </script>
+</head>
+
+<body>
+    <div id="mask-intro" class="mask-intro">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span>B</span>
+                <span>M</span>
+                <span>M</span>
+                <span>C</span>
+            </div>
+            <div class="loader-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add a canvas for the 3D background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#home" class="logo">Portfolio</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+               
+           
+                </button>
+            </div>
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero" data-aos="fade-up">
+        <div class="hero-content fade-up">
+            <div class="diagonal-line"></div>
+            <div class="diagonal-line"></div>
+            <div class="profile-container">
+                <img src="Systems and technology programming company logo.png" alt="Profile Picture" class="profile-image">
+                <div class="social-links hero-social">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="hero-text">
+                <h1>Hi, We Are <span class="highlight">BMMC</span></h1>
+                <h2>Your Fullstack Developer</h2>
+                <p class="typing-text">We specialize in creating beautiful and functional web applications</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="cta-button">Get in Touch</a>
+                    <a href="#projects" class="secondary-button">View My Work</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add this scroll indicator before the marquee-container -->
+        <div class="scroll-indicator">
+            <p>Scroll Down to Explore</p>
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <div class="marquee-item">
+                    <span>Full Stack Development</span>
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="marquee-item">
+                    <span>UI/UX Design</span>
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="marquee-item">
+                    <span>Mobile Development</span>
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="marquee-item">
+                    <span>Web Development</span>
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="marquee-item">
+                    <span>Database Design</span>
+                    <i class="fas fa-database"></i>
+                </div>
+                <!-- Duplicate items for seamless loop -->
+                <div class="marquee-item">
+                    <span>Full Stack Development</span>
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="marquee-item">
+                    <span>UI/UX Design</span>
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="marquee-item">
+                    <span>Mobile Development</span>
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="marquee-item">
+                    <span>Web Development</span>
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="marquee-item">
+                    <span>Database Design</span>
+                    <i class="fas fa-database"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+        <!-- Add this after the hero section and before the about section -->
+<div class="marquee-container">
+    <div class="marquee-content">
+        <div class="marquee-item">
+            <span>Full Stack Development</span>
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="marquee-item">
+            <span>UI/UX Design</span>
+            <i class="fas fa-paint-brush"></i>
+        </div>
+        <div class="marquee-item">
+            <span>Mobile Development</span>
+            <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div class="marquee-item">
+            <span>Web Development</span>
+            <i class="fas fa-globe"></i>
+        </div>
+        <div class="marquee-item">
+            <span>Database Design</span>
+            <i class="fas fa-database"></i>
+        </div>
+        <!-- Duplicate items for seamless loop -->
+        <div class="marquee-item">
+            <span>Full Stack Development</span>
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="marquee-item">
+            <span>UI/UX Design</span>
+            <i class="fas fa-paint-brush"></i>
+        </div>
+        <div class="marquee-item">
+            <span>Mobile Development</span>
+            <i class="fas fa-mobile-alt"></i>
+        </div>
+        <div class="marquee-item">
+            <span>Web Development</span>
+            <i class="fas fa-globe"></i>
+        </div>
+        <div class="marquee-item">
+            <span>Database Design</span>
+            <i class="fas fa-database"></i>
+        </div>
+    </div>
+</div>
+    </section>
+<!-- Add this after the hero section and before the about section -->
+
+    <!-- About Section -->
+    <section id="about" class="about" data-aos="fade-up" data-aos-duration="1000">
+        <div class="about-content fade-up" data-aos="fade-up" data-aos-delay="200">
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>
+                    We're a passionate team of fullstack developers specializing in creating beautiful and functional web applications. 
+                    With our strong foundation in both front-end and back-end development, we bring ideas to life through clean, 
+                    efficient code and intuitive user experiences.
+                </p>
+                <div class="skills">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>Python</span>
+                    <span>MongoDB</span>
+                    <span>SQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects" data-aos="fade-up" data-aos-duration="1000">
+        <div class="projects-content fade-up">
+            <h2 class="fade-up delay-1" data-aos="fade-up" data-aos-delay="200">Our Projects</h2>
+            <div class="project-grid">
+                <!-- First 6 Projects (Visible by default) -->
+                <div class="project-card fade-up delay-1" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="project1.png" alt="E-Commerce Website">
+                    <div class="project-info">
+                        <h3>E-Commerce Website</h3>
+                        <p>A full-featured online store built with React, Node.js, and MongoDB.<br><br></p>
+                        <a href="https://eastwing23.vercel.app/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-up delay-2" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="project6.png" alt="Social Media Dashboard">
+                    <div class="project-info">
+                        <h3>Personal Porfolio</h3>
+                        <p>A dynamic portfolio with chatbot implementation, can answer any question about the owner</p>
+                        <a href="https://rbs-repository.github.io/Ronelp/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+
+                
+        
+               
+
+                <div class="project-card fade-up delay-4" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="violet.png" alt="Cocktail Web">
+                    <div class="project-info">
+                        <h3>The Violet hour</h3>
+                        <p>A modern cocktail website featuring their menu, promotions, and online ordering system.</p>
+                        <a href="https://www.theviolethour.com/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="800">
+                    <img src="two14.png" alt="Two14 Cafe Website">
+                    <div class="project-info">
+                        <h3>Two14 Cafe</h3>
+                        <p>A modern cafe website designed to showcase their diverse menu offerings, highlight ongoing promotions, and facilitate seamless online ordering for customers.</p>
+                        <a href="https://two14coffee.com.au/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+        
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="850">
+                    <img src="ayuda.png" alt="Bright Face Cleanser Website">
+                    <div class="project-info">
+                        <h3>Nalen Ayurveda</h3>
+                        <p>A skincare e-commerce platform showcasing Bright Face Cleanser's products, featuring a range of facial cleansers and skincare accessories.</p>
+                        <a href="https://www.nalenayurveda.com/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+
+
+
+                <div class="project-card" data-aos="zoom-in" data-aos-delay="850">
+                    <img src="project7.png" alt="Fear of God Fashion Website">
+                    <div class="project-info">
+                        <h3>Photography Portfolio</h3>
+                        <p>A photographer's portfolio showcasing their masterpiece into digital world</p>
+                        <a href="https://www.elizabethweinberg.com/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Hidden Projects (Will show on View More click) -->
+
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="1000">
+                    <img src="project8.png" alt="Portfolio">
+                    <div class="project-info">
+                        <h3>A Video Editor Portfolio</h3>
+                        <p>A professional Video editor showcasing their works including details how they work.</p>
+                        <a href="https://rbs-repository.github.io/Module-manager/MN%20CREATIVES/index.html" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="1000">
+                    <img src="project5.png" alt="E-Commerce Website">
+                    <div class="project-info">
+                        <h3>Fashion E-Commerce Website</h3>
+                        <p>A modern fashion retail platform featuring a curated collection of clothing, accessories and footwear with secure payment processing.</p>
+                        <a href="https://www.shenannz.com/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+
+
+
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="1000">
+                    <img src="maison.png" alt="Maison Labiche Website">
+                    <div class="project-info">
+                        <h3>Maison Labiche</h3>
+                        <p>A sophisticated French fashion brand website featuring their signature embroidered clothing, accessories and custom personalization options.</p>
+                        <a href="https://www.maisonlabiche.com/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="1100">
+                    <img src="blakes.png" alt="Blakes Sweet Treats Website">
+                    <div class="project-info">
+                        <h3>Blakes Sweet Treats</h3>
+                        <p>A delightful e-commerce website specializing in crispy sweet treats and desserts, featuring an easy ordering system and secure payment processing.</p>
+                        <a href="https://www.eatblakes.com/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="1200">
+                    <img src="magic.png" alt="Magic Spoon Cereal Website">
+                    <div class="project-info">
+                        <h3>Magic Spoon Cereal</h3>
+                        <p>A modern e-commerce platform selling healthy, low-carb cereals with unique flavors. Features subscription options and secure checkout process.</p>
+                        <a href="https://magicspoon.com/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="1300" >
+                    <img src="L'ate.png" alt="French Restaurant Website">
+                    <div class="project-info">
+                        <h3>L'ATELIER Restaurant</h3>
+                        <p>An elegant French restaurant website showcasing their exquisite menu, ambiance, and online reservation system.</p>
+                        <a href="https://www.ateliersaintbarth.fr/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+                
+
+
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="1400">
+                    <img src="project4.png" alt="Task Management App">
+                    <div class="project-info">
+                        <h3>Locksmith Website</h3>
+                        <p>A professional locksmith website offering door lock sales, installation services, and 24/7 emergency lockout assistance.</p>
+                        <a href="https://www.keytek.co.uk/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="1500">
+                    <img src="cloe.png" alt="Cloe Cassandro Fashion Brand">
+                    <div class="project-info">
+                        <h3>Cloe Cassandro</h3>
+                        <p>A sustainable fashion brand offering unique and stylish clothing, made from eco-friendly materials.</p>
+                        <a href="https://cloecassandro.com/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+                
+
+
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="Fearofgod.png" alt="Fear of God Fashion Website">
+                    <div class="project-info">
+                        <h3>Fear of God</h3>
+                        <p>A luxury fashion e-commerce platform showcasing Fear of God's minimalist aesthetic, featuring high-end streetwear, accessories and footwear collections.</p>
+                        <a href="https://fearofgod.com/en-ph" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+             
+               
+
+       
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="project3.png" alt="E-Commerce Website">
+                    <div class="project-info">
+                        <h3>Real Estate Website</h3>
+                        <p>A modern real estate platform featuring property listings, search filters, and virtual tours.</p>
+                        <a href="https://jeko-rbs-12.github.io/Site13/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+
+
+                <div class="project-card hidden-project" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="project2.png" alt="Social Media Dashboard">
+                    <div class="project-info">
+                        <h3>Tourism Website</h3>
+                        <p>A dynamic tourism website showcasing destinations, attractions and travel packages.</p>
+                        <a href="https://rbs-repository.github.io/Module-manager/web/" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+
+
+           
+
+            </div>
+            <div class="view-more-container fade-up">
+                <button id="view-more-btn" class="view-more-btn">View More Projects</button>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Testimonials Section -->
+    
+
+
+
+<!-- Add this after the projects section and before the team-intro section -->
+<section id="testimonials" class="testimonials">
+    <div class="testimonials-content fade-up">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-track">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Grabe, sobrang ganda ng website ko ngayon! Hindi ko inexpect na ganito kaganda ang magiging outcome. Dati basic lang talaga website namin, pero ngayon professional na professional tingnan!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://www.fotografia.ph/photos/fotografia-philippines-wedding-photographers-profile-photos-bio-15.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>Mark Bautista</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Ang dami na naming customers ngayon kasi ang smooth ng ordering system. Dati nahihirapan kami mag-track ng orders, ngayon automated na lahat. Worth it talaga!" <br> <br>  </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1708585919491-d089c4e5fe79?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fGZpbGlwaW5vfGVufDB8fDB8fHww" alt="Client">
+                        <div class="author-info">
+                            <h4>Tina Ignacio</h4>
+                    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p> <br> "Super life saver guys, Tiwala lng. Sobrang hands on  nila di ka papabayaan " <br> <br>  </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://scontent.fmnl8-3.fna.fbcdn.net/v/t1.6435-1/42625718_484460642036026_1433864717121617920_n.jpg?stp=c0.18.540.540a_dst-jpg_s200x200&_nc_cat=105&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=KRFMmqU390UQ7kNvgFPJmck&_nc_zt=24&_nc_ht=scontent.fmnl8-3.fna&_nc_gid=AntzrLh2pufK4eSHnZa4VuL&oh=00_AYCkRr8Tvtew8DqToM5Z6ruyGzZ3-8LB9FOaE3L59xIwiQ&oe=677371E5" alt="Client">
+                        <div class="author-info">
+                            <h4>Marvin Penelosa</h4>
+                    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Super responsive ng team sa lahat ng requests namin. Kahit mga biglaan naming changes, inaacommodate nila. Tapos ang bilis pa mag-reply sa mga concerns!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1578942025297-433b80a70874?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzJ8fGZpbGlwaW5vfGVufDB8fDB8fHww" alt="Client">
+                        <div class="author-info">
+                            <h4>Paolo Mendoza</h4>
+                      
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Sobrang ganda ng website na ginawa nila! Super fast at reliable. Highly recommend!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://mir-s3-cdn-cf.behance.net/user/276/849cb1229584.63ea25b8b288c.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>Ryan Aguin</h4>
+                      
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Grabe, in-exceed nila expectation ko. Madali silang kausap at mabilis mag-adjust sa changes!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://www.shutterstock.com/image-photo/happy-young-confident-asian-business-260nw-2347736311.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>Grace Espiritu</h4>
+                      
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Mabilis, reliable, at magaling. Walang hassle sa buong process. Salamat, BMMC!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCOA92dKESDf3YLOEyXpGM-vVvevd9tUXHdw&s" alt="Client">
+                        <div class="author-info">
+                            <h4>Maine Sison</h4>
+                      
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Nagdadalawang isip ako nung una kasi malaki investment, pero nung nakita ko yung results, sobrang sulit! Dumami customers namin since nilipat namin online yung business."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1550478868-06f8f60bfddd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nzl8fGZpbGlwaW5vfGVufDB8fDB8fHww" alt="Client">
+                        <div class="author-info">
+                            <h4>Jenny Reyes</h4>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonial-dots"></div>
+                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Professional Team Introduction Section -->
+    <section id="team-intro" class="team-intro">
+        <div class="team-intro-content fade-up">
+            <h2>Team Introduction</h2>
+            <div class="professional-intro fade-up delay-1">
+                <div class="video-wrapper">
+                    <video id="intro-video" poster="rits.png" controls>
+                        <source src="Create your first AI video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="intro-credits">
+                    <p>Introduction by <span>Colssyan</span></p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="team" class="team" data-aos="fade-up" data-aos-duration="1000">
+        <div class="team-content">
+            <h2 data-aos="fade-up" data-aos-delay="200">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-card" data-aos="flip-right" data-aos-delay="300">
+                    <div class="member-image">
+                        <a href="https://www.facebook.com/profile.php?id=61561468725812" target="_blank">
+                            <img src="Jhanel.jpg" alt="Team Member">
+                        </a>
+                    </div>
+                    <div class="member-info">
+                        <h3>Jhanell De Mesa</h3>
+                        <p class="role">Backend Developer</p>
+                        <div class="member-social">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="team-card" data-aos="flip-right" data-aos-delay="400">
+                    <div class="member-image">
+                        <a href="https://www.facebook.com/Mrsofthack5" target="_blank">
+                            <img src="Jasper.jpg" alt="Team Member">
+                        </a>
+                    </div>
+                    <div class="member-info">
+                        <h3>Jasper Rubis</h3>
+                        <p class="role">UI/UX Designer x Project Manager</p>
+                        <div class="member-social">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="team-card" data-aos="flip-right" data-aos-delay="500">
+                    <div class="member-image">
+                        <a href="https://www.facebook.com/sobel.anne.12/" target="_blank">
+                            <img src="sobel.jpg" alt="Team Member">
+                        </a>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sobel Anne</h3>
+                        <p class="role">Frontend Developer</p>
+                        <div class="member-social">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services" data-aos="fade-up" data-aos-duration="1000">
+        <div class="services-content">
+            <h2 data-aos="fade-up" data-aos-delay="200">What We Do</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="flip-left" data-aos-delay="300">
+                    <i class="fas fa-desktop"></i>
+                    <h3>Web Development</h3>
+                    <p>Creating responsive and dynamic websites using modern technologies and best practices.</p>
+                </div>
+                
+                <div class="service-card" data-aos="flip-left" data-aos-delay="400">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Development</h3>
+                    <p>Building cross-platform mobile applications that provide seamless user experiences.</p>
+                </div>
+                
+                <div class="service-card" data-aos="flip-left" data-aos-delay="500">
+                    <i class="fas fa-database"></i>
+                    <h3>Database Design</h3>
+                    <p>Designing and implementing efficient database solutions for scalable applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="process" class="process">
+        <div class="process-content">
+            <h2>How We Work</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <div class="process-info">
+                        <h3>Discovery</h3>
+                        <p>Understanding your requirements and project goals through detailed consultation.</p>
+                    </div>
+                </div>
+    
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <div class="process-info">
+                        <h3>Planning</h3>
+                        <p>Creating comprehensive project plans and selecting the best technologies.</p>
+                    </div>
+                </div>
+    
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <div class="process-info">
+                        <h3>Development</h3>
+                        <p>Writing clean, efficient code and building your project with best practices.</p>
+                    </div>
+                </div>
+    
+                <div class="process-card">
+                    <div class="process-number">04</div>
+                    <div class="process-info">
+                        <h3>Launch</h3>
+                        <p>Testing, deployment, and ensuring everything works perfectly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="faq-content">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What services do you offer?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a comprehensive range of services including web development, mobile app development, UI/UX design, database design, and full-stack development solutions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does a typical project take?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Project timelines vary depending on complexity and requirements. A simple website might take 3-6 days, while more complex applications can take 2-6 months. We'll provide a detailed timeline during our initial consultation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide maintenance and support?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer ongoing maintenance and support packages to ensure your application runs smoothly after launch. This includes bug fixes, updates, and technical support.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your pricing structure?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our pricing is project-based and depends on the scope, complexity, and timeline of your requirements. We provide detailed quotes after our initial consultation to ensure transparency.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-aos="fade-up">
+        <div class="contact-content fade-up">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <!-- Contact Info -->
+      
+                <!-- Contact Form -->
+                <div class="contact-form-container fade-up delay-2">
+                    <form id="contact-form" action="https://formspree.io/f/mnnqoeel" method="POST" onsubmit="return handleSubmit(event)" data-ajax="true">
+                        <div class="form-group">
+                            <input type="text" id="name" name="Name" required placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="Email" required placeholder="Your Email">
+                        </div>
+                        <div class="form-group">
+                            <select name="Service" id="service" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Mobile Development">Mobile Development</option>
+                                <option value="UI/UX Design">UI/UX Design</option>
+                                <option value="Database Design">Database Design</option>
+                                <option value="Full Stack Development">Full Stack Development</option>
+                                <option value="Consulting">Consulting</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="Message" required placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // Animation duration
+            easing: 'ease-in-out', // Easing function
+            once: true, // Whether animation should happen only once
+        });
+    </script>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <h3>Portfolio</h3>
+                    <p>Building digital experiences with passion and purpose.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Budaque Multi Media Creations. All rights reserved.</p>
+                <p class="copyright-text"></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add these scripts before closing body tag -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Add Chatbot HTML -->
+
+
+
+    <!-- Add Flowise Script -->
+    <script type="module">
+        import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+        import botConfig from './botdesign.js'
+        
+        window.Chatbot = Chatbot;
+        Chatbot.init(botConfig);
+    </script>
+    <script src="chatbot.js"></script>
+    <script src="tooltipInit.js"></script>
+
+</body>
+
+</body>
+</html>
