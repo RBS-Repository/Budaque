@@ -1,6 +1,6 @@
 // Bot Design Configuration
 const botConfig = {
-    chatflowid: "f41e9229-7ffa-45cc-b78f-e53875908b71",
+    chatflowid: "5ca0a8c6-8417-4b18-8fd8-a5e49048a79f",
     apiHost: "https://jekjek1234-bmmc.hf.space",
     theme: {
         button: {
