@@ -5068,3 +5068,29 @@ html {
         width: 150px;
     }
 }
+
+.spline-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 300px;
+    z-index: 1000;
+    pointer-events: none; /* This allows clicking through the container if needed */
+}
+
+/* If you want to make it interactive, remove pointer-events: none and add: */
+.spline-container iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add media query for mobile responsiveness */
+@media (max-width: 768px) {
+    .spline-container {
+        width: 200px;
+        height: 200px;
+        bottom: 10px;
+        right: 10px;
+    }
+}
