@@ -5108,7 +5108,7 @@ html {
 spline-viewer {
     position: absolute; /* Change from fixed to absolute */
     bottom: -90px; /* Position it 20px from the bottom */
-    left: 94%; /* Center horizontally */
+    left: 95%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust for centering */
     z-index: 10; /* Set z-index to ensure it appears above other elements */
     width: 500px; /* Set width */
