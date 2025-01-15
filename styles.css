@@ -5106,13 +5106,13 @@ html {
 
 /* Add this CSS to ensure the Spline viewer is positioned correctly */
 spline-viewer {
-    position: fixed; /* Fixed position */
-    bottom: -100px !important; /* Align to the bottom */
-    left: 92% !important; /* Center horizontally */
+    position: absolute; /* Change from fixed to absolute */
+    bottom: -90px; /* Position it 20px from the bottom */
+    left: 94%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust for centering */
     z-index: 10; /* Set z-index to ensure it appears above other elements */
-    width: 500px; /* Small width */
-    height: 500px; /* Small height */
+    width: 500px; /* Set width */
+    height: 500px; /* Set height */
 }
 
 /* Hide the Spline branding */
