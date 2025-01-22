@@ -5115,7 +5115,7 @@ html {
 /* Add this CSS to ensure the Spline viewer is positioned correctly */
 spline-viewer {
     position: absolute; /* Change from fixed to absolute */
-    bottom: -90px; /* Position it 20px from the bottom */
+    bottom: 30px; /* Position it 20px from the bottom */
     left: 95%; /* Center horizontally */
     transform: translateX(-50%); /* Adjust for centering */
     z-index: 10; /* Set z-index to ensure it appears above other elements */
