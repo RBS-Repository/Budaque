@@ -1,0 +1,353 @@
+.whatwedo-section {
+    position: relative;
+    height: 100vh;
+    background: var(--background);
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+}
+
+.whatwedo-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.whatwedo-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.whatwedo-header h2 {
+    font-size: 3rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.section-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.service-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    animation: fadeInUp 0.6s both;
+    animation-delay: var(--delay);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 243, 255, 0.1);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    color: var(--text);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.service-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tag {
+    background: rgba(0, 243, 255, 0.1);
+    color: var(--primary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .skill-tag {
+    background: var(--primary);
+    color: var(--background);
+}
+
+.service-hover-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), transparent);
+    opacity: 0;
+    transition: all 0.4s ease;
+    pointer-events: none;
+}
+
+.service-card:hover .service-hover-effect {
+    opacity: 0.05;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1200px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .whatwedo-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 0;
+    }
+
+    .whatwedo-container {
+        padding: 0 20px;
+    }
+
+    .whatwedo-header {
+        margin-bottom: 2rem;
+    }
+
+    .whatwedo-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .service-card {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .service-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .skills-container {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .skill-tag {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+    }
+
+    .spline-background {
+        height: 100%;
+        opacity: 0.6;
+    }
+
+    .whatwedo-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+    }
+
+    .loading-screen {
+        padding: 1rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .whatwedo-section {
+        padding: 60px 0;
+    }
+
+    .whatwedo-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .service-card {
+        padding: 1.2rem;
+    }
+
+    .service-icon {
+        font-size: 1.8rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .skill-tag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+    .whatwedo-section {
+        height: auto;
+        padding: 100px 0 50px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .service-card {
+        padding: 1rem;
+    }
+
+    .service-icon {
+        margin-bottom: 0.5rem;
+    }
+
+    .service-card h3 {
+        margin-bottom: 0.5rem;
+    }
+
+    .skills-container {
+        gap: 0.3rem;
+    }
+}
+
+/* Fix for Spline background on mobile */
+@media (max-width: 768px) {
+    .spline-background canvas {
+        transform: scale(0.7);
+        transform-origin: center center;
+    }
+}
+
+.spline-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.whatwedo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        210deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+.loading-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    z-index: 1000;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+.loader::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-bottom-color: var(--primary);
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} 

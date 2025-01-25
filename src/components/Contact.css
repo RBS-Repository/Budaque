@@ -1,0 +1,443 @@
+.contact-section {
+    position: relative;
+    height: 100vh;
+ 
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+}
+
+.contact-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.contact-info h2 {
+    font-size: 3rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.contact-details {
+    margin-top: 3rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.contact-icon {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+.contact-item h3 {
+    color: var(--text);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+.contact-form-container {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    backdrop-filter: blur(10px);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.form-group select option {
+    background: var(--background);
+    color: var(--text);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 243, 255, 0.1);
+}
+
+.submit-btn {
+    padding: 1rem 2rem;
+    background: var(--primary);
+    color: var(--background);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.2);
+}
+
+.submit-btn.submitting {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.form-message {
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form-message.success {
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+}
+
+.form-message.error {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff0000;
+}
+
+@media (max-width: 992px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-item {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 0;
+    }
+
+    .contact-container {
+        padding: 0 20px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-info h2 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-details {
+        margin-top: 2rem;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-icon {
+        font-size: 1.8rem;
+    }
+
+    .contact-form-container {
+        padding: 1.5rem;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .form-group textarea {
+        min-height: 100px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .spline-background3 {
+        width: 1000px !important;
+        margin-left: -300px !important;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 60px 0;
+    }
+
+    .contact-info h2 {
+        font-size: 2rem;
+    }
+
+    .contact-icon {
+        font-size: 1.5rem;
+    }
+
+    .contact-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .contact-item p {
+        font-size: 0.9rem;
+    }
+
+    .contact-form-container {
+        padding: 1.2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .form-message {
+        font-size: 0.85rem;
+        padding: 0.7rem;
+    }
+}
+
+/* Fix for iOS form zooming */
+@supports (-webkit-touch-callout: none) {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+    .contact-section {
+        height: auto;
+        padding: 80px 0;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+
+    .contact-info {
+        text-align: left;
+    }
+
+    .contact-item {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+    }
+
+    .contact-form-container {
+        padding: 1.2rem;
+    }
+
+    .form-group textarea {
+        min-height: 80px;
+    }
+}
+
+/* Fix for form message animation */
+.form-message {
+    position: relative;
+    overflow: hidden;
+}
+
+.form-message.success,
+.form-message.error {
+    animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add these styles for the Spline background */
+.spline-background3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 230vh;
+    height: 120vh !important;
+    z-index: 1;
+}
+
+.contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        210deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.068) 100%
+    );
+    background-size: cover;
+    background-position: center;
+    animation: aurora 5s infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Loading screen styles */
+.loading-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--background);
+    z-index: 2;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+.loader::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-bottom-color: var(--primary);
+}
+
+@keyframes rotation {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+} 
+} 
