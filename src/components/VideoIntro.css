@@ -1,0 +1,351 @@
+.video-intro-section {
+    position: relative;
+    height: 100vh;
+    background: var(--background);
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+}
+
+.video-intro-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.video-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    height: 100%;
+}
+
+.video-text {
+    padding-right: 2rem;
+}
+
+.video-text h2 {
+    font-size: 3rem;
+    color: var(--text);
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.section-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 243, 255, 0.1);
+}
+
+.feature-icon {
+    font-size: 1.8rem;
+    min-width: 40px;
+}
+
+.feature-text h4 {
+    color: var(--text);
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.feature-text p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.video-preview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.video-overlay:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.play-button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.video-overlay.playing .play-button {
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+}
+
+.play-icon {
+    color: var(--background);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.video-overlay.playing .play-icon {
+    font-size: 1.4rem;
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.5);
+}
+
+@media (max-width: 1200px) {
+    .video-content {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .video-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .video-text {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .feature-list {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .feature-item:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .video-intro-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 0;
+    }
+
+    .video-intro-container {
+        padding: 0 20px;
+    }
+
+    .video-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .video-text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .video-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .feature-list {
+        gap: 1.5rem;
+    }
+
+    .feature-item {
+        padding: 1rem;
+    }
+
+    .feature-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .feature-text h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .feature-text p {
+        font-size: 0.9rem;
+    }
+
+    .video-preview {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .video-wrapper {
+        aspect-ratio: 16/9;
+    }
+
+    .play-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .play-icon {
+        font-size: 1.8rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .video-text h2 {
+        font-size: 2rem;
+    }
+
+    .feature-item {
+        padding: 0.8rem;
+    }
+
+    .feature-icon {
+        font-size: 1.5rem;
+    }
+
+    .feature-text h4 {
+        font-size: 1.1rem;
+    }
+
+    .play-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .play-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+    .video-intro-section {
+        height: auto;
+        padding: 100px 0 50px;
+    }
+
+    .video-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .video-text {
+        width: 50%;
+    }
+
+    .video-preview {
+        width: 50%;
+    }
+
+    .feature-list {
+        gap: 1rem;
+    }
+
+    .feature-item {
+        padding: 0.8rem;
+    }
+}
+
+/* Add these new styles for the video frame */
+.video-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+.video-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+/* Add these new styles for the video overlay */
+.video-overlay.playing {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.video-wrapper:hover .video-overlay.playing {
+    opacity: 1;
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.2);
+} 
